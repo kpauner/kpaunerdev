@@ -1,5 +1,39 @@
-export async function fetchPosts() {
-  const response = await fetch("http://127.0.0.1:8787/api/posts");
-  const data = await response.json();
+import axios from "axios";
+import { Categories, Projects } from "./types";
+import { useQuery } from "@tanstack/react-query";
+
+const BASE_URL = `${import.meta.env.VITE_API_URL}/api`;
+console.log(BASE_URL);
+const instance = axios.create({
+  baseURL: BASE_URL,
+});
+
+export async function getCategoryIds() {
+  const response = await instance.get<Projects>("/collections/stacks/records");
+  const data = response;
   return data;
+}
+
+export function useProjects() {
+  return useQuery({
+    queryKey: ["projects"],
+    queryFn: async () => {
+      const { data } = await instance.get<Projects>(
+        "/collections/projects/records",
+      );
+      return data;
+    },
+  });
+}
+
+export function useCategories() {
+  return useQuery({
+    queryKey: ["categories"],
+    queryFn: async () => {
+      const { data } = await instance.get<Categories>(
+        "/collections/stacks/records",
+      );
+      return data.items;
+    },
+  });
 }

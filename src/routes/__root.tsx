@@ -1,6 +1,5 @@
 import { Icons } from "@/components/icons";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { mainNav } from "@/config/navigation";
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
@@ -35,7 +34,6 @@ function NavBar() {
             </Link>
           ))}
         </nav>
-        <ThemeToggle />
       </div>
     </div>
   );

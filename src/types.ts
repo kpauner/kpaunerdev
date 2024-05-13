@@ -1,10 +1,19 @@
-type Project = {
-  id: number;
-  titleEN: string;
-  titleDA: string;
-  descriptionEN: string;
-  descriptionDA: string;
-  body: string;
+export type Project = {
+  id: string;
+  created: string;
+  updated: string;
+  collectionId: string;
+  collectionName: string;
+  title: string;
+  subheading: string;
+  description: string;
+  slug: string;
+  featured_image: string;
+  content: string;
+  stack: string[];
+  expand: {
+    stack: Category[];
+  };
 };
 
 export type Projects = {
@@ -15,20 +24,22 @@ export type Projects = {
   items: Project[];
 };
 
-// TODO POST TYPES
-type Post = {
-  id: number;
-  titleEN: string;
-  titleDA: string;
-  descriptionEN: string;
-  descriptionDA: string;
-  body: string;
+export type Category = {
+  id: string;
+  created: string;
+  updated: string;
+  collectionId: string;
+  collectionName: string;
+  title: string;
+  slug: string;
+  icon: string;
+  description: string;
 };
 
-export type Posts = {
+export type Categories = {
   page: number;
   perPage: number;
   totalItems: number;
   totalPages: number;
-  items: Post[];
+  items: Category[];
 };
