@@ -35,8 +35,10 @@ function Index() {
           </div>
         </div>
         <div className="">
-          <div className="ml-auto w-full  md:max-w-md">
-            <ListDisplay title="Hobbies" items={about.hobbies} />
+          <div className="ml-auto w-full md:max-w-md">
+            {about.hobbies && (
+              <ListDisplay title="Hobbies" items={about.hobbies} />
+            )}
           </div>
         </div>
       </SectionTemplate>
