@@ -6,6 +6,8 @@ import Hero from "@/components/marketing/hero";
 import { Separator } from "@/components/ui/separator";
 import { useProjects } from "@/queries";
 import { createLazyFileRoute } from "@tanstack/react-router";
+import { about } from "@/config/profile";
+import ListDisplay from "@/components/list-display";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -18,6 +20,26 @@ function Index() {
   return (
     <PageTemplate>
       <Hero />
+      <SectionTemplate className="h-screen">
+        <div className="space-y-4 py-12">
+          <Separator className="bg-white/30" />
+          <div className="flex items-center justify-between gap-4">
+            <Heading
+              as="h2"
+              size="xs"
+              className="font-neue font-thin uppercase tracking-widest text-white"
+            >
+              About
+            </Heading>
+            <span>01</span>
+          </div>
+        </div>
+        <div className="">
+          <div className="ml-auto w-full  md:max-w-md">
+            <ListDisplay title="Hobbies" items={about.hobbies} />
+          </div>
+        </div>
+      </SectionTemplate>
       <SectionTemplate>
         <div className="space-y-4 py-12">
           <Separator className="bg-white/30" />
@@ -29,7 +51,7 @@ function Index() {
             >
               Featured Projects
             </Heading>
-            <span>01</span>
+            <span>02</span>
           </div>
         </div>
         {status === "pending" ? (
@@ -41,10 +63,6 @@ function Index() {
             <Gallery data={data} />
           </>
         )}
-
-        <pre>
-          <code>{JSON.stringify(data?.items, null, 2)}</code>
-        </pre>
       </SectionTemplate>
     </PageTemplate>
   );
