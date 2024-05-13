@@ -47,6 +47,12 @@
 @font-face {
   font-family: "PPNeueMontreal";
   font-style: italic;
+  font-weight: 500;
+  src: url("/fonts/PPNeueMontreal-Medium.otf");
+}
+@font-face {
+  font-family: "PPNeueMontreal";
+  font-style: italic;
   font-weight: 700;
   src: url("/fonts/PPNeueMontreal-Bold.otf");
 }

@@ -43,3 +43,8 @@ export type Categories = {
   totalPages: number;
   items: Category[];
 };
+
+export type NavItem = {
+  name: string;
+  href: string;
+};

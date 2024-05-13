@@ -15,7 +15,7 @@ const SectionTemplate = React.forwardRef<HTMLDivElement, SectionTemplateProps>(
         className={clsx("mx-auto w-full py-10 md:py-14 lg:py-16", className)}
         {...restProps}
       >
-        <div className="mx-auto w-full">{children}</div>
+        <div className="mx-auto h-full w-full">{children}</div>
       </Comp>
     );
   },
