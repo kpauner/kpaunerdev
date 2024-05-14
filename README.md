@@ -1,7 +1,7 @@
 # React + TypeScript + Vite
 
-# Things im trying out in this project
-## Bun + Tanstack Router + Tanstack Form + Tanstack Query
+## Things im trying out in this project
+### Bun + Tanstack Router + Tanstack Form + Tanstack Query
 
 ----
 
