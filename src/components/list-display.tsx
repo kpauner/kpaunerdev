@@ -38,18 +38,20 @@ export default function ListDisplay({ items, title }: ListDisplayProps) {
         </Heading>
       )}
       <div className="flex justify-between">
-        <div className="grid w-full grid-cols-1 divide-y border-dashed border-white/30 ">
-          {items.map((item, i) => {
-            return (
-              <div key={i} className="flex justify-between py-4">
-                <div>{item.title}</div>
-                <p className="flex items-center text-right text-[0.6rem] uppercase text-muted-foreground">
-                  {item.description}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+        {items && (
+          <div className="grid w-full grid-cols-1 divide-y border-dashed border-white/30 ">
+            {items.map((item, i) => {
+              return (
+                <div key={i} className="flex justify-between py-4">
+                  <div>{item.title}</div>
+                  <p className="flex items-center text-right text-[0.6rem] uppercase text-muted-foreground">
+                    {item.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

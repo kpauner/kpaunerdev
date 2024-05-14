@@ -62,19 +62,20 @@ export default function NavBar({ items }: NavBarProps) {
                   className="bar block h-screen w-[20vw] bg-black"
                 ></span>
               ))}
-
-              <nav className="nav fixed left-0 top-0 z-40 flex h-full w-full flex-col items-center justify-center text-white opacity-100">
-                {items.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    onClick={toggleTimeline}
-                    className=" [&.active]:font-bold"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </nav>
+              {items && (
+                <nav className="nav fixed left-0 top-0 z-40 flex h-full w-full flex-col items-center justify-center text-white opacity-100">
+                  {items.map((item) => (
+                    <Link
+                      key={item.name}
+                      to={item.href}
+                      onClick={toggleTimeline}
+                      className=" [&.active]:font-bold"
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </nav>
+              )}
             </div>
           </div>
         </div>

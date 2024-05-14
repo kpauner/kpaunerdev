@@ -16,7 +16,7 @@ export const Route = createLazyFileRoute("/")({
 function Index() {
   const { data, error, status } = useProjects();
 
-  console.log(data);
+  console.log("DATA", data);
   return (
     <PageTemplate>
       <Hero />
