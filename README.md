@@ -1,5 +1,10 @@
 # React + TypeScript + Vite
 
+# Things im trying out in this project
+## Bun + Tanstack Router + Tanstack Form + Tanstack Query
+
+----
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
