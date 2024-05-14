@@ -1,5 +1,6 @@
 import NavBar from "@/components/nav-bar";
-import { ThemeProvider } from "@/components/theme-provider";
+import ModalProvider from "@/components/providers/modal-provider";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import { mainNav } from "@/config/navigation";
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
@@ -12,6 +13,7 @@ export const Route = createRootRoute({
         <main className="antialiased">
           <Outlet />
         </main>
+        <ModalProvider />
         <TanStackRouterDevtools />
       </ThemeProvider>
     </>

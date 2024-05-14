@@ -13,7 +13,7 @@ const PageTemplate = React.forwardRef<HTMLDivElement, PageTemplateProps>(
       <Comp
         ref={ref}
         className={clsx(
-          "flex min-h-screen w-full flex-col px-6 sm:gap-4",
+          "mx-auto flex min-h-screen w-full max-w-screen-2xl flex-col px-6 sm:gap-4",
           className,
         )}
         {...restProps}
