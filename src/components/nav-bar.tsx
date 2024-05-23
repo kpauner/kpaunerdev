@@ -4,7 +4,6 @@ import { useGSAP } from "@gsap/react";
 import { Link } from "@tanstack/react-router";
 import { useRef } from "react";
 import { NavItem } from "@/types";
-import { Separator } from "./ui/separator";
 
 type NavBarProps = {
   items: NavItem[];
@@ -25,6 +24,8 @@ export default function NavBar({ items }: NavBarProps) {
             opacity: 1,
             height: "60vh", // change this to 100vh for full-height menu
             ease: "expo.inOut",
+            display: "block",
+            top: "64px",
           },
           "<",
         )
@@ -56,7 +57,7 @@ export default function NavBar({ items }: NavBarProps) {
   return (
     <>
       <div ref={container} className="fixed left-0 top-0 z-10 w-full">
-        <section className="nav-bar mx-auto flex h-20 max-w-screen-2xl items-center justify-between px-6">
+        <section className="nav-bar mx-auto flex h-20 max-w-screen-xl items-center justify-between px-6">
           <div className="">
             <Icons.logo className="h-6 fill-white" />
           </div>
@@ -72,20 +73,22 @@ export default function NavBar({ items }: NavBarProps) {
           </button>
         </section>
 
-        <div className="menu top-100% absolute right-0  h-0 w-full max-w-md p-6 opacity-0">
+        <div className="menu -top-100% absolute right-0 hidden h-0 w-full opacity-0">
           {items && (
-            <nav className="flex h-full flex-1 flex-col justify-around rounded-lg bg-white px-8 text-4xl text-black">
-              {items.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  // onClick={toggleTimeline}
-                  className="links bg-amber-300 [&.active]:font-bold"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </nav>
+            <div className="mx-auto  h-full w-full max-w-screen-xl px-6 text-6xl text-black">
+              <span className="flex h-full w-full flex-col items-center justify-center gap-4 rounded-lg bg-white p-6">
+                {items.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    onClick={toggleTimeline}
+                    className="links  w-full text-center [&.active]:font-bold"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </span>
+            </div>
           )}
         </div>
       </div>

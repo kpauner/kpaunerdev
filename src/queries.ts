@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Categories, Projects } from "./types";
+import { Categories, ProjectTranslationRecord, Projects } from "./types";
 import { useQuery } from "@tanstack/react-query";
 
 const BASE_URL = `${import.meta.env.VITE_API_URL}/api`;
@@ -20,6 +20,18 @@ export function useProjects() {
     queryFn: async () => {
       const { data } = await instance.get<Projects>(
         "/collections/projects/records",
+      );
+      return data;
+    },
+  });
+}
+
+export function useProjectsTranslations() {
+  return useQuery({
+    queryKey: ["translations"],
+    queryFn: async () => {
+      const { data } = await instance.get<ProjectTranslationRecord>(
+        "/collections/project_translations/records",
       );
       return data;
     },
