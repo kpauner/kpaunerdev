@@ -30,7 +30,7 @@ export default function ContentList({ data, type }: ContentListProps) {
 
         if (currentItem !== null) {
           const maxY = window.scrollY + window.innerHeight - 350;
-          const maxX = window.innerWidth - 420;
+          const maxX = window.innerWidth - 520;
 
           gsap.to(revealRef.current, {
             x: gsap.utils.clamp(0, maxX, mousePos.x - 110),
@@ -71,7 +71,7 @@ export default function ContentList({ data, type }: ContentListProps) {
 
   return (
     <section ref={componentRef} className="space-y-4">
-      <span className="block h-px w-full bg-primary/50"></span>
+      <span className="block h-px w-full bg-primary"></span>
       <ul className="relative flex flex-col" onMouseLeave={onMouseLeave}>
         {data.map((item, index) => (
           <li
@@ -107,7 +107,7 @@ export default function ContentList({ data, type }: ContentListProps) {
                 </span>
               </div>
             </Link>
-            <span className="block h-px w-full bg-primary/50"></span>
+            <span className="block h-px w-full bg-primary"></span>
           </li>
         ))}
       </ul>

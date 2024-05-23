@@ -43,22 +43,19 @@ body {
 }
 
 @font-face {
-  font-family: "PPNeueMontreal";
-  font-style: italic;
+  font-family: "SuisseIntlMono";
   font-weight: 100;
-  src: url("/fonts/PPNeueMontreal-Thin.otf");
+  src: url("/fonts/SuisseIntlMono-Thin-WebTrial");
 }
 @font-face {
-  font-family: "PPNeueMontreal";
-  font-style: italic;
+  font-family: "SuisseIntlMono";
   font-weight: 500;
-  src: url("/fonts/PPNeueMontreal-Medium.otf");
+  src: url("/fonts/SuisseIntlMono-Regular-WebTrial");
 }
 @font-face {
-  font-family: "PPNeueMontreal";
-  font-style: italic;
+  font-family: "SuisseIntlMono";
   font-weight: 700;
-  src: url("/fonts/PPNeueMontreal-Bold.otf");
+  src: url("/fonts/SuisseIntlMono-Bold-WebTrial");
 }
 
 @layer base {

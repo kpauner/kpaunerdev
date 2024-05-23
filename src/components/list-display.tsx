@@ -32,7 +32,7 @@ export default function ListDisplay({ items, title }: ListDisplayProps) {
         <Heading
           as="h2"
           size="sm"
-          className="font-eiko uppercase tracking-widest text-white"
+          className="font-serif uppercase tracking-widest text-white"
         >
           {title}
         </Heading>

@@ -1,21 +1,15 @@
 import { create } from "zustand";
 
-type Store = {
-  isOpen: boolean;
-  onOpen: () => void;
-  onClose: () => void;
+type AnimationPlayedStore = {
+  played: boolean;
+  hasPlayed: () => void;
 };
 
-export const useStore = create<Store>((set) => ({
-  isOpen: false,
-  onOpen: () => {
+export const useAnimationPlayedStore = create<AnimationPlayedStore>((set) => ({
+  played: false,
+  hasPlayed: () => {
     set({
-      isOpen: true,
+      played: true,
     });
-  },
-  onClose: () => {
-    set(() => ({
-      isOpen: false,
-    }));
   },
 }));
