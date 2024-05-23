@@ -5,7 +5,11 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import Heading from "../layout/heading";
 
-export default function Hero() {
+type HeroProps = {
+  title?: string;
+};
+
+export default function Hero({ title }: HeroProps) {
   const container = useRef<HTMLDivElement>(null);
 
   const text1 = "Fullstack ";
@@ -47,14 +51,24 @@ export default function Hero() {
       ref={container}
       className="flex h-[60vh] w-full flex-col justify-end space-y-6 py-8"
     >
-      <Heading
-        as="h2"
-        size="xl"
-        className="flex max-w-screen-lg flex-col gap-4 font-sans font-medium "
-      >
-        <span className="text-animation opacity-0">{text1}</span>
-        <span className="text-animation opacity-0">{text2}</span>
-      </Heading>
+      {title ? (
+        <Heading
+          as="h2"
+          size="xl"
+          className="flex max-w-screen-lg flex-col gap-4 font-sans font-medium "
+        >
+          <span className="text-animation opacity-0">{title}</span>
+        </Heading>
+      ) : (
+        <Heading
+          as="h2"
+          size="xl"
+          className="flex max-w-screen-lg flex-col gap-4 font-sans font-medium "
+        >
+          <span className="text-animation opacity-0">{text1}</span>
+          <span className="text-animation opacity-0">{text2}</span>
+        </Heading>
+      )}
     </section>
   );
 }

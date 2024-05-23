@@ -35,8 +35,9 @@ function Index() {
               size="md"
               className="basis-full font-sans font-medium  md:basis-3/4"
             >
-              On your marks. Get set. Go-to-market. Quickly launch your company
-              past the competition.
+              I Design and code interactive User interfaces that seamlessly
+              integrate branding elements, creating immersive and cohesive user
+              experiences.
             </Heading>
           </div>
         </div>
