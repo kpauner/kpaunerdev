@@ -19,8 +19,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        eiko: ["PPEiko", "serif"],
-        neue: ["PPNeueMontreal", "sans-serif"],
+        serif: ["PPEiko", "serif"],
+        sans: ["SuisseIntlMono", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

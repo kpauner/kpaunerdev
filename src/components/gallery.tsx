@@ -17,7 +17,7 @@ export default function Gallery({ data }: GalleryProps) {
           <div key={item.id}>
             <img src={imageUrl} alt={item.title} />
             <div className="flex flex-col gap-2 py-2">
-              <div className="flex justify-between border-b border-dotted border-white pb-2 font-neue text-[0.7rem] font-medium uppercase tracking-wider">
+              <div className="flex justify-between border-b border-dotted border-white pb-2 font-sans text-[0.7rem] font-medium uppercase tracking-wider">
                 <h2 className="">{item.title}</h2>
                 <span>0{index + 1}</span>
               </div>

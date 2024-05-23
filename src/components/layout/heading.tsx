@@ -17,9 +17,10 @@ export default function Heading({
     <Comp
       className={clsx(
         "leading-none tracking-wide text-foreground",
-        size === "xl" && "text-[clamp(3rem,12vmin,14rem)]",
-        size === "lg" && "text-7xl md:text-8xl",
-        size === "md" && "text-5xl md:text-6xl",
+        size === "xl" &&
+          "text-[clamp(4rem,14vmin,16rem)] leading-[4.5rem] lg:leading-[7rem]",
+        size === "lg" && "text-7xl leading-[4.5rem] md:text-8xl",
+        size === "md" && "text-5xl md:text-6xl md:leading-[4.5rem]",
         size === "sm" && "text-3xl md:text-4xl",
         size === "xs" && "text-xs md:text-sm",
         className,

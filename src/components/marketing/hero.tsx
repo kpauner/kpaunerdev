@@ -1,22 +1,59 @@
-import React from "react";
+"use client";
+
+import { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import Heading from "../layout/heading";
 
 export default function Hero() {
+  const container = useRef<HTMLDivElement>(null);
+
+  const text1 = "Fullstack ";
+  const text2 = "developer";
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline();
+
+      tl.fromTo(
+        ".text-animation",
+        {
+          y: 80,
+        },
+        {
+          y: 0,
+          duration: 0.8,
+          autoAlpha: 1,
+          stagger: {
+            amount: 0.5,
+            grid: [1, 1],
+            axis: "y",
+            ease: "circk.inOut",
+            from: "start",
+          },
+        },
+      );
+      tl.to(".icon", {
+        opacity: 1,
+        duration: 0.5,
+
+        autoAlpha: 1,
+      });
+    },
+    { scope: container },
+  );
   return (
-    <section className="flex h-screen w-full flex-col  justify-end py-6">
+    <section
+      ref={container}
+      className="flex h-[60vh] w-full flex-col justify-end space-y-6 py-8"
+    >
       <Heading
-        as="h1"
-        size="md"
-        className="font-neue max-w-screen-lg font-bold uppercase leading-[5rem]"
+        as="h2"
+        size="xl"
+        className="flex max-w-screen-lg flex-col gap-4 font-sans font-medium "
       >
-        Khend Pauner
-      </Heading>
-      <Heading
-        as="h1"
-        size="sm"
-        className="font-eiko max-w-screen-md font-thin uppercase leading-[5rem]"
-      >
-        Frontend developer and designer
+        <span className="text-animation opacity-0">{text1}</span>
+        <span className="text-animation opacity-0">{text2}</span>
       </Heading>
     </section>
   );
