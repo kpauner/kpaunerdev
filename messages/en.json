@@ -1,0 +1,15 @@
+{
+  "Error": {
+    "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
+    "title": "Something went wrong!"
+  },
+  "IndexPage": {
+    "title": "fullstack",
+    "titlep2": "developer & designer",
+    "description": "In an ever-evolving digital landscape, my unique blend of talents positions me as someone capable of constructing immersive and impactful web experiences that resonate with audiences on multiple levels – aesthetic, functional, and emotional. <code>next-intl</code>"
+  },
+  "footer": {
+    "title": "Soon available for new projects!",
+    "about": "About"
+  }
+}

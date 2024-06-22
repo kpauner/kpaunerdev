@@ -1,0 +1,14 @@
+{
+  "landing": {
+    "titlep1": "フロントエンド開発者 ",
+    "titlep2": "兼デザイナー",
+    "subtitle": "進化し続けるデジタル環境の中で、私のユニークな才能のブレンドは、審美的、機能的、感情的な複数のレベルでオーディエンスと共鳴する、没入的でインパクトのあるウェブ体験を構築することができる人物として私を位置づけています。",
+    "stacks": "様々なテクノロジーを使ってウェブ・アプリケーションを設計・開発しています。",
+    "latest-articles": "Latest articles",
+    "selected-works": "Selected works"
+  },
+  "footer": {
+    "title": "Soon available for new projects!",
+    "about": "About"
+  }
+}
