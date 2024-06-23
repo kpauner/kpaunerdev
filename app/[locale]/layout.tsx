@@ -4,6 +4,7 @@ import { getMessages } from "next-intl/server";
 import Navigation from "@/components/navigation";
 import { cn } from "@/lib/utils";
 import { cera } from "@/lib/fonts";
+import Providers from "@/components/query-client-provider";
 
 export default async function LocaleLayout({
   children,
@@ -26,9 +27,11 @@ export default async function LocaleLayout({
           // enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider messages={messages}>
-            {children}
-          </NextIntlClientProvider>
+          <Providers>
+            <NextIntlClientProvider messages={messages}>
+              {children}
+            </NextIntlClientProvider>
+          </Providers>
         </ThemeProvider>
       </body>
     </html>

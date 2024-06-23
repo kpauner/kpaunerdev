@@ -3,12 +3,14 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import PageLayout from "@/components/layout/page-layout";
 import Temp from "@/components/temp";
 import Navigation from "@/components/navigation";
+import { getProjects, useProjects } from "@/db/queries";
+import Gallery from "@/components/gallery";
 
 type Props = {
   params: { locale: string };
 };
 
-export default function IndexPage({ params: { locale } }: Props) {
+export default function Home({ params: { locale } }: Props) {
   const t = useTranslations("IndexPage");
 
   const items = [
@@ -25,9 +27,8 @@ export default function IndexPage({ params: { locale } }: Props) {
         <Navigation items={items} className="gap-4 flex  bg-teal-300" />
       </section>
       <PageLayout>
-        <h1 className="text-4xl font-bold">{t("title")}</h1>
-        hejsa
-        <Temp />
+        <Gallery locale={locale} />
+        {/* <Temp /> */}
       </PageLayout>
     </>
   );
