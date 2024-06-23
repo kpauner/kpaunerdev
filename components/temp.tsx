@@ -1,5 +1,6 @@
 "use client";
 
+import { useProjects } from "@/db/queries";
 import { useTranslations } from "next-intl";
 import React from "react";
 
@@ -7,6 +8,7 @@ type Props = {};
 
 export default function Temp({}: Props) {
   const t1 = useTranslations("Error");
+  const { data, error, isLoading } = useProjects();
   return (
     <div>
       {t1.rich("description", {
