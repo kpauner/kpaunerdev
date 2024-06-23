@@ -1,9 +1,6 @@
 import { useTranslations } from "next-intl";
-import { unstable_setRequestLocale } from "next-intl/server";
 import PageLayout from "@/components/layout/page-layout";
-import Temp from "@/components/temp";
 import Navigation from "@/components/navigation";
-import { getProjects, useProjects } from "@/db/queries";
 import Gallery from "@/components/gallery";
 
 type Props = {

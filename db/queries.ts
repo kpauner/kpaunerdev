@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ProjectRecord } from "@/lib/types";
 import axios from "axios";
 
-const API_URL = "https://backend.kpauner.com/";
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const INSTANCE_URL = axios.create({ baseURL: API_URL });
 
 export const getProjects = async () => {
@@ -18,7 +18,7 @@ export function useProjects() {
     queryKey: ["projects"],
     queryFn: async () => {
       const response = await getProjects();
-      return response.data; // Extract data here in the queryFn
+      return response.data;
     },
   });
 }
