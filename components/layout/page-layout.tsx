@@ -11,7 +11,7 @@ export default function PageLayout({ children, title, description }: Props) {
   // const t = useTranslations('PageLayout');
 
   return (
-    <div className="relative flex grow flex-col bg-slate-850 py-36 px-6">
+    <div className="relative flex grow flex-col bg-slate-850 py-24 px-6">
       <div className="container relative flex grow flex-col">
         {title && (
           <h1 className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-5xl">

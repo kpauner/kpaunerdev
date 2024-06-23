@@ -1,6 +1,9 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import Navigation from "@/components/navigation";
+import { cn } from "@/lib/utils";
+import { cera } from "@/lib/fonts";
 
 export default async function LocaleLayout({
   children,
@@ -15,7 +18,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body>
+      <body className={cn("grow scroll-smooth", cera.variable)}>
         <ThemeProvider
           attribute="class"
           forcedTheme="dark"
