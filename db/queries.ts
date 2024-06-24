@@ -7,7 +7,7 @@ const INSTANCE_URL = axios.create({ baseURL: API_URL });
 
 export const getProjects = async () => {
   return await INSTANCE_URL.get<ProjectRecord>(
-    "api/collections/projects/records"
+    "/api/collections/projects/records"
   );
 };
 

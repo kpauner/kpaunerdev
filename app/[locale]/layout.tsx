@@ -18,7 +18,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} className="bg-black" suppressHydrationWarning>
       <body className={cn("grow scroll-smooth", cera.variable)}>
         <ThemeProvider
           attribute="class"
@@ -29,7 +29,19 @@ export default async function LocaleLayout({
         >
           <Providers>
             <NextIntlClientProvider messages={messages}>
-              {children}
+              <div className="bg-[#ff0c3a] font-medium text-xs uppercase text-center p-2">
+                Looking for my main site? Check out{" "}
+                <a
+                  href="https://kpauner.com"
+                  className="underline underline-offset-2"
+                  target="_blank"
+                >
+                  kpauner.com
+                </a>
+              </div>
+              <main className="flex flex-col grow max-w-screen-xl mx-auto px-6 py-12">
+                {children}
+              </main>
             </NextIntlClientProvider>
           </Providers>
         </ThemeProvider>
