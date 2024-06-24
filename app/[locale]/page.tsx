@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import PageLayout from "@/components/layout/page-layout";
 import Navigation from "@/components/navigation";
 import Gallery from "@/components/gallery";
+import { Icons } from "@/components/icons";
 
 type Props = {
   params: { locale: string };
@@ -19,11 +20,11 @@ export default function Home({ params: { locale } }: Props) {
 
   return (
     <>
-      <section className="flex justify-between items-center px-6 py-8">
-        logo here
-        <Navigation items={items} className="gap-4 flex  bg-teal-300" />
+      <section className="flex justify-between items-center">
+        <Icons.logo className="w-24 fill-white" />
+        <Navigation items={items} className="gap-4 flex" />
       </section>
-      <PageLayout>
+      <PageLayout description="Small gallery of me messing around with web technologies">
         <Gallery locale={locale} />
         {/* <Temp /> */}
       </PageLayout>
