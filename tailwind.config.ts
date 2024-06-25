@@ -20,6 +20,7 @@ const config = {
     extend: {
       fontFamily: {
         serif: ["var(--font-cera)", "serif"],
+        cinzel: ["var(--font-cinzel)", "serif"],
       },
       keyframes: {
         "accordion-down": {
