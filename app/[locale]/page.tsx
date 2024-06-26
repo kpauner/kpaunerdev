@@ -11,7 +11,10 @@ export default function Home({ params: { locale } }: Props) {
 
   return (
     <>
-      <PageLayout>
+      <PageLayout
+        title="no more boring stock"
+        description="The best free stock photos and royalty free images. Powered by robots everywhere."
+      >
         <Gallery locale={locale} />
         {/* <Temp /> */}
       </PageLayout>
