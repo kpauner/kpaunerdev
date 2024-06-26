@@ -48,8 +48,8 @@ export default async function LocaleLayout({
                   kpauner.com
                 </a>
               </div>
-              <section className="flex justify-between items-center max-w-screen-xl mx-auto px-6 py-12">
-                <Icons.logo className="w-24 fill-white" />
+              <section className="flex flex-col sm:flex-row justify-between items-center max-w-screen-xl mx-auto px-6 pt-16 pb-2">
+                <Icons.logo className="w-28 h-12 fill-white" />
                 <Navigation items={items} className="gap-4 flex" />
               </section>
               <main className="flex flex-col grow max-w-screen-xl mx-auto px-6 py-12">

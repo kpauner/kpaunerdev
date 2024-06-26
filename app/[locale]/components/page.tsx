@@ -11,15 +11,10 @@ export default function Components({ params: { locale } }: Props) {
 
   return (
     <>
-      <PageLayout className="mx-auto text-center">
-        <p className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-[9rem] font-cinzel">
-          Work in
-        </p>
-
-        <p className="text-3xl font-semibold leading-tight tracking-tight text-white md:text-[9rem] font-cinzel">
-          Progress
-        </p>
-      </PageLayout>
+      <PageLayout
+        title="under construction"
+        description="Coming soon to an internet near you."
+      ></PageLayout>
     </>
   );
 }
