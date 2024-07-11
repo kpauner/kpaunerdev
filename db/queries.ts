@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { ProjectRecord } from "@/lib/types";
+import { CategoryRecord, ProjectRecord } from "@/lib/types";
 import axios from "axios";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -11,6 +11,12 @@ export const getProjects = async () => {
   );
 };
 
+export const getCategories = async () => {
+  return await INSTANCE_URL.get<CategoryRecord>(
+    "/api/collections/categories/records"
+  );
+};
+
 //QUERIES
 
 export function useProjects() {
@@ -18,6 +24,16 @@ export function useProjects() {
     queryKey: ["projects"],
     queryFn: async () => {
       const response = await getProjects();
+      return response.data;
+    },
+  });
+}
+
+export function useCategories() {
+  return useQuery({
+    queryKey: ["categories"],
+    queryFn: async () => {
+      const response = await getCategories();
       return response.data;
     },
   });

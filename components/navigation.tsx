@@ -59,8 +59,8 @@ function Item({ href, label, className }: ItemProps) {
         className={clsx(
           "absolute left-0 top-[150%] h-0.5 w-[2.5em] transition-all",
           isActive
-            ? "rounded-full bg-blue-800"
-            : "bg-white [clip-path:inset(0_100%_0_0_round_100px)] group-hover:bg-blue-400 group-hover:[clip-path:inset(0_50%_0_0_round_100px)]"
+            ? "rounded-full bg-dark-blue"
+            : "bg-white [clip-path:inset(0_100%_0_0_round_100px)] group-hover:bg-dark-blue group-hover:[clip-path:inset(0_50%_0_0_round_100px)]"
         )}
       />
     </li>
