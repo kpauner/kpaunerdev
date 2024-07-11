@@ -22,6 +22,9 @@ const config = {
         serif: ["var(--font-cera)", "serif"],
         cinzel: ["var(--font-cinzel)", "serif"],
       },
+      colors: {
+        "dark-blue": "#0C09CA",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
