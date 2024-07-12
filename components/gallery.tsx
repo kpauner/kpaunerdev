@@ -14,6 +14,8 @@ import {
 import { ProjectRecord, ProjectTypes } from "@/lib/types";
 import { useLocale } from "next-intl";
 import Link from "next/link";
+import { Icons } from "./icons";
+import { Separator } from "./ui/separator";
 
 type GalleryProps = {
   locale: string;
@@ -29,10 +31,6 @@ export default function Gallery({ locale }: GalleryProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<ProjectTypes | null>(null);
 
-  console.log("DATA", data);
-  console.log(categories);
-
-  // Create a mapping of category IDs to titles
   const categoryMap = useMemo(() => {
     if (!categories) return {};
     return categories.items.reduce((acc, category) => {
@@ -41,7 +39,6 @@ export default function Gallery({ locale }: GalleryProps) {
     }, {} as Record<string, string>);
   }, [categories]);
 
-  // Replace category IDs with titles in the data items
   const processedData = useMemo(() => {
     if (!data || !categoryMap) return null;
     return data.items.map((item) => ({
@@ -52,7 +49,6 @@ export default function Gallery({ locale }: GalleryProps) {
     }));
   }, [data, categoryMap]);
 
-  //TODO PLACE VIDEO EXTENSIONS IN A CONFIG FILE
   const isVideo = (fileName: string) => {
     const videoExtensions = ["mp4", "webm", "ogg"];
     const extension = fileName.split(".").pop()?.toLowerCase();
@@ -65,7 +61,7 @@ export default function Gallery({ locale }: GalleryProps) {
 
   if (isLoading || categoriesIsLoading) return <div>Loading...</div>;
   if (error || categoriesError) return <div>Error loading data</div>;
-
+  console.log("ERR", error);
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -136,46 +132,55 @@ function GalleryDrawer({
           <SheetTitle className="uppercase text-6xl pb-2 font-black">
             {item.title}
           </SheetTitle>
-          <SheetDescription className="dark:text-white">
+          <SheetDescription className="dark:text-white ">
             {localizedDescription}
           </SheetDescription>
-        </SheetHeader>
-        <div>
-          {isVideo(item.featured_img) ? (
-            <video
-              src={`${process.env.NEXT_PUBLIC_API_URL}/api/files/${item.collectionName}/${item.id}/${item.featured_img}`}
-              className="w-full"
-              controls
-            />
-          ) : (
-            <Image
-              src={`${process.env.NEXT_PUBLIC_API_URL}/api/files/${item.collectionName}/${item.id}/${item.featured_img}`}
-              alt={item.title}
-              width={1000}
-              height={1000}
-              className="w-full h-auto"
-            />
-          )}
-          {/* Add more details about the item here */}
-          <div className="mt-8 flex flex-row flex-wrap gap-2 tracking-wide justify-between items-center">
-            <ul className="list-none flex flex-row flex-wrap gap-2 tracking-wide capitalize">
+          <div className="mt-8 flex flex-row flex-wrap gap-2 tracking-wide justify-between items-center pt-4">
+            <ul className="list-none text-sm flex flex-row flex-wrap gap-2 tracking-wider capitalize">
               {item.categories.map((category: string, index: number) => (
                 <li
                   key={index}
-                  className="text-sm  border  border-white/20 rounded-full p-3 hover:bg-black/10"
+                  className="text-medium border border-white/80 rounded-full py-1 px-2"
                 >
                   {category}
                 </li>
               ))}
             </ul>
-            <Link
-              className="bg-white text-dark-blue rounded-full p-3"
-              href={item.project_url}
-            >
-              Go to project
-            </Link>
+            {item.project_url && (
+              <Link
+                className="hover:underline flex items-center gap-2 bg-white text-dark-blue rounded-full p-3 hover:bg-white/80"
+                href={item.project_url}
+                target="_blank"
+              >
+                To project{" "}
+                <Icons.arrowupright className="inline-block size-6 hover:underline pt-1" />
+              </Link>
+            )}
           </div>
-        </div>
+        </SheetHeader>
+
+        {item.gallery.map((image: string, index: number) => (
+          <div
+            key={index}
+            className="mt-8 flex flex-row flex-wrap gap-2 tracking-wider justify-between items-center"
+          >
+            {isVideo(item.featured_img) ? (
+              <video
+                src={`${process.env.NEXT_PUBLIC_API_URL}/api/files/${item.collectionName}/${item.id}/${image}`}
+                className="w-full"
+                controls
+              />
+            ) : (
+              <Image
+                src={`${process.env.NEXT_PUBLIC_API_URL}/api/files/${item.collectionName}/${item.id}/${image}`}
+                alt={item.title}
+                width={1000}
+                height={1000}
+                className="w-full h-auto"
+              />
+            )}
+          </div>
+        ))}
       </SheetContent>
     </Sheet>
   );
