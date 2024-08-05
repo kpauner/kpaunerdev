@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { cera, cinzel } from "@/lib/fonts";
 import Providers from "@/components/query-client-provider";
 import { Icons } from "@/components/icons";
+import Footer from "@/components/layout/footer";
 
 export default async function LocaleLayout({
   children,
@@ -55,6 +56,7 @@ export default async function LocaleLayout({
               <main className="flex flex-col grow max-w-screen-xl mx-auto px-6 py-12">
                 {children}
               </main>
+              <Footer />
             </NextIntlClientProvider>
           </Providers>
         </ThemeProvider>
