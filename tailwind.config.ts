@@ -23,7 +23,7 @@ const config = {
         cinzel: ["var(--font-cinzel)", "serif"],
       },
       colors: {
-        "dark-blue": "#0C09CA",
+        secondary: "#0C09CA",
       },
       keyframes: {
         "accordion-down": {
