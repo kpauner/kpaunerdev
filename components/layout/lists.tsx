@@ -1,8 +1,4 @@
-import React from "react";
-// import Heading from "@/components/heading";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { useLocale } from "next-intl";
 
 type ListProps = {
   title?: string;
@@ -13,36 +9,28 @@ type ListProps = {
   orientation?: "horizontal" | "vertical";
 };
 
-const List = ({
-  data,
-  title,
-  showTitle,
-  orientation,
-  className,
-}: ListProps) => {
-  const locale = useLocale();
+const List = ({ data, orientation, className }: ListProps) => {
   if (!data) return null;
   return (
-    <div className={cn("flex flex-col gap-2", className)}>
-      {showTitle && <h2>{title}</h2>}
-      <ul
-        className={cn(
-          "flex flex-col gap-4",
-          orientation === "horizontal" && "flex-row"
-        )}
-      >
-        {data.items.map((item: any) => (
-          <li key={item.id}>
-            <Link
-              href={`/${locale}/posts/${item.slug}`}
-              className="hover:underline capitalize"
-            >
-              {item.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul
+      className={cn(
+        "flex flex-col gap-8",
+        orientation === "horizontal" && "flex-row",
+        className
+      )}
+    >
+      {data.map((item: any) => (
+        <li key={item.id} className="flex flex-col gap-2">
+          <div className="text-sm font-black uppercase tracking-wide text-white flex gap-2">
+            <span>{item.year}</span>/<span>{item.title}</span>
+          </div>
+          <p className="leading-5">{item.description}</p>
+          <div className="text-sm font-black uppercase tracking-wide text-white">
+            {item.business}
+          </div>
+        </li>
+      ))}
+    </ul>
   );
 };
 
