@@ -53,9 +53,7 @@ export default async function LocaleLayout({
                 <Icons.logo className="w-28 h-12 fill-white" />
                 <Navigation items={items} className="gap-4 flex" />
               </section>
-              <main className="flex flex-col grow max-w-screen-xl mx-auto px-6 py-12">
-                {children}
-              </main>
+              {children}
               <Footer />
             </NextIntlClientProvider>
           </Providers>

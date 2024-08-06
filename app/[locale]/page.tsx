@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
-import PageLayout from "@/components/layout/page-layout";
+
 import Gallery from "@/components/gallery";
+import { PageLayout } from "@/components/layout/page-layout";
 
 type Props = {
   params: { locale: string };
@@ -14,6 +15,7 @@ export default function Home({ params: { locale } }: Props) {
       <PageLayout
         title="Another playground"
         description="Small projects, components,  various and experiments"
+        className=""
       >
         <Gallery locale={locale} />
         {/* <Temp /> */}

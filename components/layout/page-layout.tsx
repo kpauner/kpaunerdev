@@ -1,42 +1,75 @@
 import { cn } from "@/lib/utils";
+import { cva } from "class-variance-authority";
 import { useTranslations } from "next-intl";
-import { ReactNode } from "react";
+import { ReactNode, forwardRef } from "react";
 
-type Props = {
-  children?: ReactNode;
-  title?: ReactNode;
-  description?: ReactNode;
+type PageLayoutProps = {
+  as?: React.ElementType;
+  title?: string;
+  description?: string;
+  size?: "default" | "sm" | "md";
+  variant?: "default" | "page";
   className?: string;
-};
+  children?: React.ReactNode;
+} & React.HTMLAttributes<HTMLDivElement>;
 
-export default function PageLayout({
-  children,
-  title,
-  description,
-  className,
-}: Props) {
-  // const t = useTranslations('PageLayout');
+const pageLayoutVariants = cva("flex grow flex-col mx-auto px-6 py-12", {
+  variants: {
+    variant: {
+      default: "max-w-screen-xl",
+      page: "max-w-screen-lg",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+});
 
-  return (
-    <div className={cn("flex grow flex-col", className)}>
-      {(title || description) && (
-        <div className="relative flex grow flex-col pb-14">
-          {title && (
-            <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white md:text-[8rem]">
-              {title}
-            </h1>
-          )}
-          <div className=" grid grid-cols-1 gap-4 pt-4 md:grid-cols-2 lg:gap-12">
+const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
+  (
+    {
+      as: Comp = "main",
+      title,
+      description,
+      size = "md",
+      variant = "default",
+      className,
+      children,
+      ...restProps
+    },
+    ref
+  ) => {
+    return (
+      <Comp
+        ref={ref}
+        className={cn(pageLayoutVariants({ variant, className }))}
+        {...restProps}
+      >
+        {(title || description) && (
+          <div className="relative flex grow flex-col pb-14">
+            {title && (
+              <h1
+                className={cn(
+                  "text-4xl font-black leading-none tracking-tight text-white md:text-[8rem] uppercase"
+                )}
+              >
+                {title}
+              </h1>
+            )}
+
             {description && (
-              <div className="col-span-1">
-                <p className="text-lg text-white">{description}</p>
+              <div className="pt-12">
+                <p className="text-2xl text-white">{description}</p>
               </div>
             )}
           </div>
-        </div>
-      )}
+        )}
+        <div className="text-gray-400 md:text-lg">{children}</div>
+      </Comp>
+    );
+  }
+);
 
-      <div className="mt-6 text-gray-400 md:text-lg">{children}</div>
-    </div>
-  );
-}
+PageLayout.displayName = "PageLayout";
+
+export { PageLayout };

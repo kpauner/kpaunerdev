@@ -127,7 +127,7 @@ function GalleryDrawer({
   };
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
-      <SheetContent side="right" className="dark:bg-[#0C09CA]">
+      <SheetContent side="right" className="dark:bg-secondary">
         <SheetHeader className="pb-8">
           <SheetTitle className="uppercase text-6xl pb-2 font-black">
             {item.title}
@@ -148,7 +148,7 @@ function GalleryDrawer({
             </ul>
             {item.project_url && (
               <Link
-                className="hover:underline flex items-center gap-2 bg-white text-dark-blue rounded-full p-3 hover:bg-white/80"
+                className="hover:underline flex items-center gap-2 bg-white text-secondary rounded-full p-3 hover:bg-white/80"
                 href={item.project_url}
                 target="_blank"
               >
