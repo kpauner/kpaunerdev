@@ -1,4 +1,5 @@
 import AboutContent from "@/components/about/about-content";
+import Heading from "@/components/layout/heading";
 import { List } from "@/components/layout/lists";
 import { PageLayout } from "@/components/layout/page-layout";
 import { Separator } from "@/components/ui/separator";
@@ -17,13 +18,17 @@ export default async function AboutPage({}: Props) {
       <AboutContent />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 pt-16">
         <div className="space-y-4">
-          <h2 className="text-2xl font-black uppercase tracking-wide text-white">
+          <Heading as="h2" size="sm" className="">
             Experience
-          </h2>
+          </Heading>
           <Separator className="dark:bg-white" />
           <List data={listItems} orientation="vertical" />
         </div>
-        <div>
+        <div className="space-y-4">
+          <Heading as="h2" size="sm" className="">
+            Current
+          </Heading>
+          <Separator className="dark:bg-white" />
           <p className="text-4xl text-white italic tracking-wide leading-10">
             If youd like to get in touch, feel free to reach out to me on any of
             the following platforms:
