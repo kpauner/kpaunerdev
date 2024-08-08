@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
-import PageLayout from "@/components/layout/page-layout";
+
 import Gallery from "@/components/gallery";
+import { PageLayout } from "@/components/layout/page-layout";
 
 type Props = {
   params: { locale: string };
@@ -13,8 +14,10 @@ export default function Components({ params: { locale } }: Props) {
     <>
       <PageLayout
         title="under construction"
-        description="Coming soon to an internet near you."
-      ></PageLayout>
+        description="Various copy and paste components using react, tailwind and gsap"
+      >
+        Coming soon to an internet near you.
+      </PageLayout>
     </>
   );
 }
