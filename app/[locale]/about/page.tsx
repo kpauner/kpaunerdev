@@ -30,8 +30,7 @@ export default async function AboutPage({}: Props) {
           </Heading>
           <Separator className="dark:bg-white" />
           <p className="text-4xl text-white italic tracking-wide leading-10">
-            If youd like to get in touch, feel free to reach out to me on any of
-            the following platforms:
+            Currently creating micro-saas projects in the streaming space.
           </p>
         </div>
       </div>
