@@ -47,7 +47,7 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
         gsap.fromTo(
           ref.current,
           { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1.2, ease: "power3.inOut" }
+          { opacity: 1, y: 0, duration: 1.2, ease: "power3.inOut" },
         );
       }
     }, []);
@@ -62,7 +62,7 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
             {title && (
               <h1
                 className={cn(
-                  "text-4xl font-black leading-none tracking-tight text-white md:text-[8rem] uppercase"
+                  "text-4xl font-black uppercase leading-none tracking-tight text-white md:text-[8rem]",
                 )}
               >
                 {title}
@@ -79,9 +79,72 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
         <div className="text-foreground md:text-lg">{children}</div>
       </Comp>
     );
-  }
+  },
 );
 
 PageLayout.displayName = "PageLayout";
 
-export { PageLayout };
+type ComponentLayoutProps = {
+  as?: React.ElementType;
+  title?: string;
+  description?: string;
+  categories?: string[];
+  className?: string;
+  children?: React.ReactNode;
+} & React.HTMLAttributes<HTMLDivElement>;
+
+const ComponentLayout = forwardRef<HTMLDivElement, ComponentLayoutProps>(
+  ({
+    as: Comp = "section",
+    title,
+    description,
+    className,
+    children,
+    categories,
+    ...restProps
+  }) => {
+    return (
+      <Comp
+        className={cn(
+          "grid grid-cols-1 gap-4 md:grid-cols-6 md:gap-8",
+          className,
+        )}
+        {...restProps}
+      >
+        {(title || description) && (
+          <div className="relative col-span-2 flex grow flex-col pb-6">
+            {title && (
+              <h1
+                className={cn(
+                  "text-xl font-black uppercase leading-none tracking-tight text-white md:text-2xl",
+                )}
+              >
+                {title}
+              </h1>
+            )}
+
+            {description && (
+              <div className="pt-4">
+                <p className="text-base text-foreground">{description}</p>
+              </div>
+            )}
+            {categories && (
+              <div className="pt-4">
+                <p className="text-sm italic text-foreground">
+                  {categories.map((category) => category).join(", ")}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+        <div className="col-span-4 aspect-video rounded-lg border border-dashed border-foreground/30 bg-muted/30 p-4 text-foreground md:text-lg">
+          {children}
+        </div>
+      </Comp>
+    );
+  },
+);
+
+ComponentLayout.displayName = "ComponentLayout";
+
+export { PageLayout, ComponentLayout };
