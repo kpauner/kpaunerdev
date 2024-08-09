@@ -11,11 +11,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ProjectRecord, ProjectTypes } from "@/lib/types";
+import { ProjectTypes } from "@/lib/types";
 import { useLocale } from "next-intl";
 import Link from "next/link";
 import { Icons } from "./icons";
-import { Separator } from "./ui/separator";
 
 type GalleryProps = {
   locale: string;
@@ -127,12 +126,12 @@ function GalleryDrawer({
   };
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
-      <SheetContent side="right" className="dark:bg-secondary">
+      <SheetContent side="right" className="dark:bg-primary">
         <SheetHeader className="pb-8">
           <SheetTitle className="uppercase text-6xl pb-2 font-black">
             {item.title}
           </SheetTitle>
-          <SheetDescription className="dark:text-white ">
+          <SheetDescription className="dark:text-foreground text-xl">
             {localizedDescription}
           </SheetDescription>
           <div className="mt-8 flex flex-row flex-wrap gap-2 tracking-wide justify-between items-center pt-4">

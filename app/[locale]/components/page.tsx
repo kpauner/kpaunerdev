@@ -8,14 +8,11 @@ type Props = {
 };
 
 export default function Components({ params: { locale } }: Props) {
-  const t = useTranslations("IndexPage");
+  const t = useTranslations("components-page");
 
   return (
     <>
-      <PageLayout
-        title="under construction"
-        description="Various copy and paste components using react, tailwind and gsap"
-      >
+      <PageLayout title={t("title")} description={t("description")}>
         Coming soon to an internet near you.
       </PageLayout>
     </>

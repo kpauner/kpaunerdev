@@ -8,7 +8,7 @@ type Props = {
 };
 
 export default function Home({ params: { locale } }: Props) {
-  const t = useTranslations("IndexPage");
+  const t = useTranslations("index-page");
 
   return (
     <>

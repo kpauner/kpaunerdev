@@ -26,7 +26,7 @@ export default async function LocaleLayout({
   ];
 
   return (
-    <html lang={locale} className="bg-black" suppressHydrationWarning>
+    <html lang={locale} className="bg-primary " suppressHydrationWarning>
       <body
         className={cn("grow scroll-smooth", cera.variable, cinzel.variable)}
       >
