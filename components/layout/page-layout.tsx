@@ -30,27 +30,24 @@ const pageLayoutVariants = cva("flex grow flex-col mx-auto px-6 py-12", {
 });
 
 const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
-  (
-    {
-      as: Comp = "main",
-      title,
-      description,
-      size = "md",
-      variant = "default",
-      className,
-      children,
-      ...restProps
-    },
-    ref
-  ) => {
-    const titleRef = useRef(null);
+  ({
+    as: Comp = "main",
+    title,
+    description,
+    size = "md",
+    variant = "default",
+    className,
+    children,
+    ...restProps
+  }) => {
+    const ref = useRef(null);
 
     useGSAP(() => {
-      if (titleRef.current) {
+      if (ref.current) {
         gsap.fromTo(
-          titleRef.current,
+          ref.current,
           { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1.6, ease: "power3.out" }
+          { opacity: 1, y: 0, duration: 1.2, ease: "power3.inOut" }
         );
       }
     }, []);
@@ -61,7 +58,7 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
         {...restProps}
       >
         {(title || description) && (
-          <div ref={titleRef} className="relative flex grow flex-col pb-14">
+          <div className="relative flex grow flex-col pb-14">
             {title && (
               <h1
                 className={cn(
@@ -79,7 +76,7 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
             )}
           </div>
         )}
-        <div className="text-gray-400 md:text-lg">{children}</div>
+        <div className="text-foreground md:text-lg">{children}</div>
       </Comp>
     );
   }
