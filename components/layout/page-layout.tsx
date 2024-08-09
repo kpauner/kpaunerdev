@@ -1,7 +1,11 @@
+"use client";
+
 import { cn } from "@/lib/utils";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { cva } from "class-variance-authority";
 import { useTranslations } from "next-intl";
-import { ReactNode, forwardRef } from "react";
+import { ReactNode, forwardRef, useRef } from "react";
 
 type PageLayoutProps = {
   as?: React.ElementType;
@@ -39,6 +43,17 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
     },
     ref
   ) => {
+    const titleRef = useRef(null);
+
+    useGSAP(() => {
+      if (titleRef.current) {
+        gsap.fromTo(
+          titleRef.current,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 1.6, ease: "power3.out" }
+        );
+      }
+    }, []);
     return (
       <Comp
         ref={ref}
@@ -46,7 +61,7 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
         {...restProps}
       >
         {(title || description) && (
-          <div className="relative flex grow flex-col pb-14">
+          <div ref={titleRef} className="relative flex grow flex-col pb-14">
             {title && (
               <h1
                 className={cn(

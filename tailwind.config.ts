@@ -23,6 +23,9 @@ const config = {
         cinzel: ["var(--font-cinzel)", "serif"],
       },
       colors: {
+        primary: "#000",
+        foreground: "#fff",
+        muted: "#0E0E0E",
         secondary: "#0C09CA",
       },
       keyframes: {
