@@ -7,6 +7,7 @@ import { cera, cinzel } from "@/lib/fonts";
 import Providers from "@/components/query-client-provider";
 import { Icons } from "@/components/icons";
 import Footer from "@/components/layout/footer";
+import Link from "next/link";
 
 export default async function LocaleLayout({
   children,
@@ -24,7 +25,7 @@ export default async function LocaleLayout({
   ];
 
   return (
-    <html lang={locale} className="bg-primary " suppressHydrationWarning>
+    <html lang={locale} className="bg-primary" suppressHydrationWarning>
       <body
         className={cn("grow scroll-smooth", cera.variable, cinzel.variable)}
       >
@@ -37,7 +38,7 @@ export default async function LocaleLayout({
         >
           <Providers>
             <NextIntlClientProvider messages={messages}>
-              <div className="bg-[#ff0c3a] font-medium text-xs uppercase text-center p-2">
+              <div className="bg-[#ff0c3a] p-2 text-center text-xs font-medium uppercase">
                 Looking for my main site? Check out{" "}
                 <a
                   href="https://kpauner.com"
@@ -47,9 +48,11 @@ export default async function LocaleLayout({
                   kpauner.com
                 </a>
               </div>
-              <section className="flex flex-col sm:flex-row justify-between items-center max-w-screen-xl mx-auto px-6 pt-16 pb-2">
-                <Icons.logo className="w-28 h-12 fill-white" />
-                <Navigation items={items} className="gap-4 flex" />
+              <section className="mx-auto flex max-w-screen-xl flex-col items-center justify-between px-6 pb-2 pt-16 sm:flex-row">
+                <Link href="/">
+                  <Icons.logo className="h-12 w-28 fill-white" />
+                </Link>
+                <Navigation items={items} className="flex gap-4" />
               </section>
               {children}
               <Footer />
