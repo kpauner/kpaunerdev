@@ -24,7 +24,7 @@ const config = {
       },
       colors: {
         primary: "#000",
-        foreground: "#fff",
+        foreground: "#808080",
         muted: "#0E0E0E",
         secondary: "#0C09CA",
       },
