@@ -15,14 +15,12 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages();
   const items = [
     { label: "Home", href: "" },
     { label: "Components", href: "/components" },
     { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    // { label: "Contact", href: "/contact" },
   ];
 
   return (
