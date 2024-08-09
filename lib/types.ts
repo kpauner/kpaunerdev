@@ -1,3 +1,5 @@
+import { z } from "zod";
+
 export type CategoryTypes = {
   id: string;
   created: string;
@@ -44,3 +46,10 @@ export type ProjectRecord = {
   totalPages: number;
   items: ProjectTypes[];
 };
+
+// KEEP INCASE OF CONTACT FORM
+export const ContactFormSchema = z.object({
+  name: z.string().min(1).max(50).optional(),
+  email: z.string().email().optional(),
+  message: z.string().min(1).max(500).optional(),
+});

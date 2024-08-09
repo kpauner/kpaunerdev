@@ -16,7 +16,7 @@ export default function Navigation({
   ...props
 }: NavigationProps) {
   const currentPath = usePathname();
-  console.log("CURRENT", currentPath);
+
   return (
     <nav
       className={clsx(
@@ -43,8 +43,6 @@ function Item({ href, label, className }: ItemProps) {
   const currentPath = usePathname();
   const locale = useLocale(); // Use the useLocale hook
   const localizedHref = href === "/" ? `/${locale}` : `/${locale}${href}`;
-
-  console.log("CURRENT", localizedHref, currentPath);
 
   const isActive = currentPath === localizedHref;
   return (

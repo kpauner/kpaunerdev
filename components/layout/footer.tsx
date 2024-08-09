@@ -20,23 +20,35 @@ export default async function Footer({}: FooterProps) {
             className="flex flex-row justify-between
             items-center gap-4"
           >
-            <h2 className="text-white text-xl">
-              Fullstack Developer and Designer
-            </h2>
-
-            <ul className="flex gap-4">
-              <li>
-                <Link href="https://www.twitch.tv/kpaunerdev" target="_blank">
-                  <Icons.twitch className="size-6 fill-violet-100" />
-                </Link>
-              </li>
-              <li>
-                <Icons.youtube className="size-6 fill-violet-100" />
-              </li>
-              <li>
-                <Icons.twitterx className="size-6 fill-violet-100" />
-              </li>
-            </ul>
+            <div>
+              <h2 className="text-white text-xl">
+                Fullstack Developer and Designer
+              </h2>
+              <ul className="flex gap-4 text-xs">
+                <li>
+                  <Link href="https://www.twitch.tv/kpaunerdev" target="_blank">
+                    twitch
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.linkedin.com/in/kpauner"
+                    target="_blank"
+                  >
+                    linkedin
+                  </Link>
+                </li>
+                <li>
+                  <Link href="mailto:kp@kpauner.com" target="_blank">
+                    kp@kpauner.com
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="flex flex-col">
+              <div className="text-white">© 2024 · kpauner</div>
+              <div className="self-end text-xs ">All rights reserved</div>
+            </div>
           </div>
         </PageLayout>
       </div>
