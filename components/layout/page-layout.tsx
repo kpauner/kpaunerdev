@@ -137,7 +137,7 @@ const ComponentLayout = forwardRef<HTMLDivElement, ComponentLayoutProps>(
             )}
           </div>
         )}
-        <div className="col-span-4 aspect-video rounded-lg border border-dashed border-foreground/30 bg-muted/30 p-4 text-foreground md:text-lg">
+        <div className="relative col-span-4 flex aspect-video items-center justify-center rounded-lg border border-dashed border-foreground/30 bg-muted/30 p-4 text-foreground md:text-lg">
           {children}
         </div>
       </Comp>
