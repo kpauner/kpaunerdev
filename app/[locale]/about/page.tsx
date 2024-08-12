@@ -16,7 +16,7 @@ export default async function AboutPage({}: Props) {
       variant="default"
     >
       <AboutContent />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 pt-16">
+      <div className="grid grid-cols-1 gap-16 pt-16 md:grid-cols-2">
         <div className="space-y-4">
           <Heading as="h2" size="sm" className="">
             Experience
@@ -29,7 +29,7 @@ export default async function AboutPage({}: Props) {
             Current
           </Heading>
           <Separator className="dark:bg-white" />
-          <p className="text-4xl text-white italic tracking-wide leading-10">
+          <p className="text-4xl italic leading-10 tracking-wide text-white">
             Currently creating micro-saas projects in the streaming space.
           </p>
         </div>

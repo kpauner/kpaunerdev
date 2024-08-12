@@ -1,11 +1,10 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { cva } from "class-variance-authority";
-import { useTranslations } from "next-intl";
-import { ReactNode, forwardRef, useRef } from "react";
+import { forwardRef, useRef } from "react";
+import { motion, AnimatePresence, cubicBezier } from "framer-motion";
+import { usePathname, useRouter } from "next/navigation";
 
 type PageLayoutProps = {
   as?: React.ElementType;
@@ -41,43 +40,60 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
     ...restProps
   }) => {
     const ref = useRef(null);
-
-    useGSAP(() => {
-      if (ref.current) {
-        gsap.fromTo(
-          ref.current,
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1.2, ease: "power3.inOut" },
-        );
-      }
-    }, []);
+    const path = usePathname();
+    const refreshKey = useRef(Date.now()).current;
     return (
-      <Comp
-        ref={ref}
-        className={cn(pageLayoutVariants({ variant, className }))}
-        {...restProps}
-      >
-        {(title || description) && (
-          <div className="relative flex grow flex-col pb-14">
-            {title && (
-              <h1
-                className={cn(
-                  "text-4xl font-black uppercase leading-none tracking-tight text-white md:text-[8rem]",
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={path}
+          initial="initialState"
+          animate="animateState"
+          exit="exitState"
+          transition={{ duration: 1.2 }}
+          variants={{
+            initialState: {
+              opacity: 0,
+              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+            },
+            animateState: {
+              opacity: 1,
+              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+            },
+            exitState: {
+              clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
+            },
+          }}
+        >
+          <Comp
+            ref={ref}
+            className={cn(pageLayoutVariants({ variant, className }))}
+            {...restProps}
+          >
+            {(title || description) && (
+              <div className="relative flex grow flex-col pb-14">
+                {title && (
+                  <h1
+                    className={cn(
+                      "text-4xl font-black uppercase leading-none tracking-tight text-white md:text-[8rem]",
+                    )}
+                  >
+                    {title}
+                  </h1>
                 )}
-              >
-                {title}
-              </h1>
-            )}
 
-            {description && (
-              <div className="pt-12">
-                <p className="text-2xl text-white">{description}</p>
+                {description && (
+                  <div className="pt-12">
+                    <p className="text-2xl text-white">{description}</p>
+                  </div>
+                )}
               </div>
             )}
-          </div>
-        )}
-        <div className="text-foreground md:text-lg">{children}</div>
-      </Comp>
+            <div className="space-y-8 text-foreground md:text-lg">
+              {children}
+            </div>
+          </Comp>
+        </motion.div>
+      </AnimatePresence>
     );
   },
 );

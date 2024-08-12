@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { cn } from "@/lib/utils";
 import { Folder, MessageCircle, User, WalletCards } from "lucide-react";
 
@@ -94,47 +92,10 @@ const ITEMS: ToolbarItem[] = [
 
 export default function ToolbarExpandable() {
   const container = useRef<HTMLDivElement>(null);
-  const tl = useRef<GSAPTimeline>();
   const [active, setActive] = useState<number | null>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [prevActive, setPrevActive] = useState<number | null>(null);
-
-  const { contextSafe } = useGSAP(
-    () => {
-      if (!contentRef.current) return;
-      tl.current = gsap
-        .timeline({ reversed: true, paused: true })
-        .set(contentRef.current, {
-          height: 0,
-          autoAlpha: 0,
-        });
-    },
-
-    { scope: container },
-  );
-
-  const toggleTimeline = contextSafe((itemId: number) => {
-    if (!tl.current) return;
-    if (active === itemId) {
-      gsap.to(contentRef.current, {
-        height: 0,
-
-        duration: 0.3,
-        ease: "power2.inOut",
-        onComplete: () => setActive(null),
-      });
-    } else {
-      setActive(itemId);
-      gsap.to(contentRef.current, {
-        height: "auto",
-
-        duration: 0.3,
-        ease: "power2.inOut",
-      });
-    }
-    console.log("waah", active, itemId);
-  });
 
   return (
     <div className="absolute bottom-8" ref={container}>
@@ -169,11 +130,6 @@ export default function ToolbarExpandable() {
                 active === item.id ? "bg-zinc-100 text-zinc-800" : "",
               )}
               type="button"
-              onClick={() => {
-                toggleTimeline(item.id);
-                // setIsOpen(!isOpen);
-                // setActive(item.id);
-              }}
             >
               {item.title}
             </button>

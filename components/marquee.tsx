@@ -1,11 +1,10 @@
 "use client";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import horizontalLoop from "@/lib/horizontalloop";
 import { CategoryTypes } from "@/lib/types";
-import { env } from "process";
+import { motion } from "framer-motion";
+import MarqueeAnimation from "./marquee-anim";
 
 type MarqueeItem = {
   value: string;
@@ -16,9 +15,22 @@ type MarqueeProps = {
   content: CategoryTypes[];
 };
 
+const marqueeVariants = {
+  animate: {
+    x: [0, -1035],
+    transition: {
+      x: {
+        repeat: Infinity,
+        repeatType: "loop",
+        duration: 5,
+        ease: "linear",
+      },
+    },
+  },
+};
+
 export default function Marquee({ content }: MarqueeProps) {
   const container = useRef<HTMLDivElement>(null);
-
   const [svgContents, setSvgContents] = useState<{ [key: string]: string }>({});
 
   useEffect(() => {
@@ -26,7 +38,7 @@ export default function Marquee({ content }: MarqueeProps) {
       const svgs: { [key: string]: string } = {};
       for (const item of content) {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/api/files/${item.collectionName}/${item.id}/${item.icon}`
+          `${process.env.NEXT_PUBLIC_API_URL}/api/files/${item.collectionName}/${item.id}/${item.icon}`,
         );
         svgs[item.id] = await response.text();
       }
@@ -36,36 +48,26 @@ export default function Marquee({ content }: MarqueeProps) {
     fetchSvgs();
   }, [content]);
 
-  useGSAP(
-    () => {
-      const loop = horizontalLoop(".marquee", {
-        speed: 0.3,
-        repeat: -1,
-        paddingRight: 24,
-      });
-    },
-    { scope: container }
-  );
-
   return (
     <div
       ref={container}
-      className="w-full h-full min-h-24 flex items-center justify-center  overflow-x-hidden gap-x-6 relative"
+      className="relative flex w-full overflow-x-hidden py-12"
     >
-      {content.map((item) => (
-        <div key={item.id} className="marquee relative h-8 shrink-0 w-24 ">
-          {svgContents[item.id] && (
-            <div
-              dangerouslySetInnerHTML={{ __html: svgContents[item.id] }}
-              className="w-full h-full [&_svg]:w-full [&_svg]:h-full [&_svg_path]:fill-white "
-            />
-          )}
-        </div>
-      ))}
-      <div className="absolute left-0 top-0 h-full w-full z-10 flex justify-between">
-        <span className="bg-gradient-to-r from-black to-opacity-0 inline-block h-full w-28"></span>
-        <span className="bg-gradient-to-l from-black to-opacity-0 inline-block h-full w-28"></span>
-      </div>
+      <MarqueeAnimation>
+        {content.map((item) => (
+          <div
+            className="track relative h-8 w-24 shrink-0 whitespace-nowrap will-change-transform"
+            key={item.id}
+          >
+            {svgContents[item.id] && (
+              <div
+                dangerouslySetInnerHTML={{ __html: svgContents[item.id] }}
+                className="h-full w-full [&_svg]:h-full [&_svg]:w-full [&_svg_path]:fill-white"
+              />
+            )}
+          </div>
+        ))}
+      </MarqueeAnimation>
     </div>
   );
 }
