@@ -49,18 +49,16 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
           initial="initialState"
           animate="animateState"
           exit="exitState"
-          transition={{ duration: 1.2 }}
+          transition={{ duration: 1.2, delay: 0.2 }}
           variants={{
             initialState: {
               opacity: 0,
-              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
             },
             animateState: {
               opacity: 1,
-              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
             },
             exitState: {
-              clipPath: "polygon(50% 0, 50% 0, 50% 100%, 50% 100%)",
+              opacity: 0,
             },
           }}
         >
