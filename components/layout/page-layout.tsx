@@ -40,13 +40,13 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
       children,
       ...restProps
     },
-    ref, // Use this ref instead of creating a new one
+    ref,
   ) => {
     const path = usePathname();
 
     return (
       <Comp
-        ref={ref} // Use the forwarded ref here
+        ref={ref}
         className={cn(pageLayoutVariants({ variant, className }))}
         {...restProps}
       >
