@@ -15,7 +15,7 @@ export default async function Footer({}: FooterProps) {
       }}
     >
       <div className="fixed bottom-0 mx-auto h-[120px] w-full">
-        <PageLayout as="footer" className="py-12">
+        {/* <PageLayout as="footer" className="py-12">
           <div className="flex flex-row items-center justify-between gap-4">
             <div>
               <h2 className="text-xl text-white">
@@ -47,7 +47,7 @@ export default async function Footer({}: FooterProps) {
               <div className="self-end text-xs">All rights reserved</div>
             </div>
           </div>
-        </PageLayout>
+        </PageLayout> */}
       </div>
     </div>
   );
