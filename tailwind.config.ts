@@ -1,12 +1,19 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
+import plugin from "tailwindcss/plugin"
+import { createPreset } from "fumadocs-ui/tailwind-plugin"
 
 const config = {
   darkMode: ["class"],
+  presets: [createPreset()],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "./pages/**/*.{ts,tsx, md, mdx}",
+    "./components/**/*.{ts,tsx, md, mdx}",
+    "./app/**/*.{ts,tsx, md, mdx}",
+    "./src/**/*.{ts,tsx, md, mdx}",
+    "./node_modules/fumadocs-ui/dist/**/*.js",
+    "../../node_modules/fumadocs-ui/dist/**/*.js",
+    "./content/**/*.mdx",
+    "./mdx-components.tsx",
   ],
   prefix: "",
   theme: {
@@ -19,20 +26,55 @@ const config = {
     },
     extend: {
       fontFamily: {
-        serif: ["var(--font-cera)", "serif"],
-        cinzel: ["var(--font-cinzel)", "serif"],
+        mono: ["var(--font-suisseintlmono)", "sans-serif"],
+        sans: ["var(--font-saans)", "sans-serif"],
+        mango: ["var(--font-mango)", "sans-serif"],
+      },
+      fontSize: {
+        "2xs": "0.65rem",
       },
       colors: {
-        primary: "#000",
-        foreground: "#808080",
-        muted: "#0E0E0E",
-        secondary: "#0C09CA",
+        paper: "#f6f2ea",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "marquee-left": {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-100%)" },
-        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -43,13 +85,19 @@ const config = {
         },
       },
       animation: {
-        "marquee-left": "marquee-left 5s linear infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+  plugins: [
+    require("tailwindcss-animate"),
+    plugin(function ({ addBase }) {
+      addBase({
+        html: { fontSize: "18px" },
+      })
+    }),
+  ],
+} satisfies Config
 
-export default config;
+export default config

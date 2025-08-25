@@ -15,6 +15,7 @@
 
 # production
 /build
+/content/docs/letters
 
 # misc
 .DS_Store

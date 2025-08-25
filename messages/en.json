@@ -1,22 +1,22 @@
 {
-  "Error": {
-    "description": "<p>We've unfortunately encountered an error.</p><p>You can try to <retry>reload the page</retry> you were visiting.</p>",
-    "title": "Something went wrong!"
-  },
-  "index-page": {
-    "title": "fullstack",
-    "description": "In an ever-evolving digital landscape, my unique blend of talents positions me as someone capable of constructing immersive and impactful web experiences that resonate with audiences on multiple levels – aesthetic, functional, and emotional. <guidelines>the guidelines</guidelines>"
-  },
-  "components-page": {
-    "title": "Steal these components",
-    "description": "Various copy and paste components for your next project, made with react, tailwind and gsap."
-  },
-  "contact-page": {
-    "title": "Get in touch",
-    "description": "In an ever-evolving digital landscape."
+  "landing": {
+    "title": {
+      "title1": "Frontend developer &",
+      "title2": "UX Enthusiast"
+    },
+    "subtitle": "In an ever-evolving digital landscape, my unique blend of talents positions me as someone capable of constructing immersive and impactful web experiences that resonate with audiences on multiple levels – aesthetic, functional, and emotional.",
+    "stacks-title": "Technology stack",
+    "stacks": "I design and develop web applications using various technologies.\nbelow is a selection of my favourite ones.",
+    "latest-articles": "Latest articles",
+    "selected-works": {
+      "title": "Selected works",
+      "description": "A curated collection of projects that showcase my expertise in frontend development and design. Each piece represents a unique challenge solved through creative problem-solving and technical innovation."
+    }
   },
   "footer": {
-    "title": "Soon available for new projects!",
-    "about": "About"
+    "title": "Get in touch",
+    "about": "About",
+    "available": "Available for full-time work",
+    "copyright": "Copyright © 2024. All rights reserved."
   }
 }

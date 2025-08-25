@@ -1,0 +1,10 @@
+import { toRuntime, toRuntimeAsync } from "fumadocs-mdx"
+import * as docs_0 from "../content/docs/accordion.mdx?collection=docs&hash=69dfe7eb1e641caf1543988ad14f69c342c707f924ee9bfd6f243f3f99e3379e"
+import * as docs_1 from "../content/docs/header.mdx?collection=docs&hash=69dfe7eb1e641caf1543988ad14f69c342c707f924ee9bfd6f243f3f99e3379e"
+import * as docs_2 from "../content/docs/index.mdx?collection=docs&hash=69dfe7eb1e641caf1543988ad14f69c342c707f924ee9bfd6f243f3f99e3379e"
+import * as docs_3 from "../content/docs/stack.mdx?collection=docs&hash=69dfe7eb1e641caf1543988ad14f69c342c707f924ee9bfd6f243f3f99e3379e"
+import * as docs_4 from "../content/docs/letters/aboutme.mdx?collection=docs&hash=69dfe7eb1e641caf1543988ad14f69c342c707f924ee9bfd6f243f3f99e3379e"
+import * as docs_5 from "../content/docs/letters/sevendays.mdx?collection=docs&hash=69dfe7eb1e641caf1543988ad14f69c342c707f924ee9bfd6f243f3f99e3379e"
+import * as meta_0 from "../content/docs/meta.json?collection=meta&hash=69dfe7eb1e641caf1543988ad14f69c342c707f924ee9bfd6f243f3f99e3379e"
+export const docs = [toRuntime("doc", docs_0, {"path":"accordion.mdx","absolutePath":"D:/Clients/kpauner/app/kpaunerdev/content/docs/accordion.mdx"}), toRuntime("doc", docs_1, {"path":"header.mdx","absolutePath":"D:/Clients/kpauner/app/kpaunerdev/content/docs/header.mdx"}), toRuntime("doc", docs_2, {"path":"index.mdx","absolutePath":"D:/Clients/kpauner/app/kpaunerdev/content/docs/index.mdx"}), toRuntime("doc", docs_3, {"path":"stack.mdx","absolutePath":"D:/Clients/kpauner/app/kpaunerdev/content/docs/stack.mdx"}), toRuntime("doc", docs_4, {"path":"letters\\aboutme.mdx","absolutePath":"D:/Clients/kpauner/app/kpaunerdev/content/docs/letters/aboutme.mdx"}), toRuntime("doc", docs_5, {"path":"letters\\sevendays.mdx","absolutePath":"D:/Clients/kpauner/app/kpaunerdev/content/docs/letters/sevendays.mdx"})];
+export const meta = [toRuntime("meta", meta_0, {"path":"meta.json","absolutePath":"D:/Clients/kpauner/app/kpaunerdev/content/docs/meta.json"})];

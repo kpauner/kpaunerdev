@@ -1,14 +1,22 @@
 {
-  "indexPage": {
-    "titlep1": "Frontend udvikler",
-    "titlep2": "og designer",
-    "description": "Jeg designer og udvikler webapplikationer ved hjælp af forskellige teknologier. Nedenfor er et udvalg af mine favoritter.",
-    "stacks": "I design and develop web applications using various technologies. below is a selection of my favourite ones.",
+  "landing": {
+    "title": {
+      "title1": "Frontend developer &",
+      "title2": "UX Enthusiast"
+    },
+    "subtitle": "In an ever-evolving digital landscape, my unique blend of talents positions me as someone capable of constructing immersive and impactful web experiences that resonate with audiences on multiple levels – aesthetic, functional, and emotional.",
+    "stacks-title": "Technology stack",
+    "stacks": "I design and develop web applications using various technologies.\nbelow is a selection of my favourite ones.",
     "latest-articles": "Latest articles",
-    "selected-works": "Selected works"
+    "selected-works": {
+      "title": "Selected works",
+      "description": "A curated collection of projects that showcase my expertise in frontend development and design. Each piece represents a unique challenge solved through creative problem-solving and technical innovation."
+    }
   },
   "footer": {
-    "title": "Snart klar til nye projekter!",
-    "about": "About"
+    "title": "Get in touch",
+    "about": "About",
+    "available": "Available for full-time work",
+    "copyright": "Copyright © 2024. All rights reserved."
   }
 }

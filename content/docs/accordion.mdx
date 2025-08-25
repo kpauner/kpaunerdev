@@ -1,0 +1,107 @@
+---
+title: Accordion
+description:
+  A vertically stacked set of interactive headings that each reveal a section of content powered by
+  motion.
+full: true
+---
+
+import { Accordion } from "@/features/docs/components/accordion"
+import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock"
+import { Tabs, Tab } from "fumadocs-ui/components/tabs"
+
+<Tabs items={['Preview', 'Code']} >
+  <Tab value="Preview" >
+    <div className="flex items-center justify-center max-w-lg mx-auto w-full min-h-[500px]">
+      <Accordion 
+        data={[
+          {
+            question: "Vivamus non ultricies eros.",
+            answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec interdum nisl. Sed placerat ligula sapien, vel ullamcorper orci cursus et. "
+          },
+          {
+            question: "Proin ut tincidunt ipsum.",
+            answer: "Quisque tempor libero eget feugiat posuere. Ut consectetur in nibh consectetur porta. Fusce pretium et justo et consequat."
+          },
+        ]}
+        className="w-full"
+      />
+    </div>
+  </Tab>
+  <Tab value="Code" >
+```tsx
+    "use client"
+
+    import React, { useState } from "react"
+    import { cn } from "@/lib/utils"
+    import { Plus } from "lucide-react"
+    import { AnimatePresence, motion } from "motion/react"
+
+    const AccordionTrigger = React.forwardRef<
+      HTMLButtonElement,
+      React.ButtonHTMLAttributes<HTMLButtonElement>
+    >(({ className, ...props }, ref) => {
+      return <button type="button" className={className} ref={ref} {...props} />
+    })
+
+    AccordionTrigger.displayName = "AccordionTrigger"
+
+    type AccordionProps = {
+      data: {
+        question: string
+        answer: string
+      }[]
+      className?: string
+    }
+
+    const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
+      ({ data, className }: AccordionProps, ref) => {
+        const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
+        return (
+          <div ref={ref} className={cn("mx-auto flex flex-col gap-6", className)}>
+            {data.map((item, index) => (
+              <div key={index} className="rounded-2xl border border-secondary bg-neutral-900 p-6">
+                <AccordionTrigger
+                  className="flex w-full items-center justify-between text-xl"
+                  onClick={() => setSelectedIndex(selectedIndex === index ? null : index)}
+                  aria-expanded={selectedIndex === index}
+                >
+                  {item.question}
+                  <Plus
+                    className={cn(
+                      "flex-shrink-0 cursor-pointer text-primary",
+                      selectedIndex === index && "rotate-45 transition-all duration-300",
+                    )}
+                  />
+                </AccordionTrigger>
+                <AnimatePresence>
+                  {selectedIndex === index && (
+                    <motion.div
+                      className="overflow-hidden"
+                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                      animate={{ opacity: 1, height: "auto", marginTop: "1rem" }}
+                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                    >
+                      <p className="text-muted-foreground text-left mt-4">{item.answer}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+        )
+      }
+    )
+
+    Accordion.displayName = "Accordion"
+
+    export { Accordion, AccordionTrigger }
+    ```
+
+  </Tab>
+</Tabs>
+
+### Dependencies
+
+- [motion](https://www.npmjs.com/package/motion)
+- [lucide](https://www.npmjs.com/package/lucide)
