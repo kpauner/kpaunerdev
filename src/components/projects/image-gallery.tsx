@@ -3,7 +3,14 @@ import { ProjectTypes } from "@/types/projects"
 import Image from "next/image"
 import React from "react"
 
-export default function ImageGallery({ project }: { project: ProjectTypes }) {
+type GallerySource = {
+  id: string
+  slug: string
+  collectionName: string
+  gallery: string[]
+}
+
+export default function ImageGallery({ project }: { project: GallerySource }) {
   const isImage = (fileName: string) => {
     const imageExtensions = ["jpg", "jpeg", "png", "gif", "webp"]
     const fileExtension = fileName.split(".").pop()?.toLowerCase()

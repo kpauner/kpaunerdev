@@ -5,6 +5,7 @@ import Loader from "@/components/app/loader"
 import { ThemeProvider } from "@/lib/providers/theme-provider"
 import { RootProvider } from "fumadocs-ui/provider"
 import OverlayProvider from "@/lib/providers/overlay-provider"
+import QueryProvider from "@/lib/providers/query-provider"
 
 export const metadata: Metadata = {
   title: "kpauner",
@@ -29,10 +30,12 @@ export default async function LocaleLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
-          <RootProvider theme={{ enabled: true }}>
-            <OverlayProvider>{children}</OverlayProvider>
-            <Loader />
-          </RootProvider>
+          <QueryProvider>
+            <RootProvider theme={{ enabled: true }}>
+              <OverlayProvider>{children}</OverlayProvider>
+              <Loader />
+            </RootProvider>
+          </QueryProvider>
         </ThemeProvider>
       </body>
     </html>
