@@ -6,7 +6,7 @@ export async function getPostsApi(): Promise<PostRecord> {
     sort: "-created",
     expand: "stack",
     // Limit returned fields to reduce payload size
-    fields: "id,collectionName,title,slug,created,featuredImage,expand.stack",
+    fields: "id,collectionName,title,slug,created,featuredImage,excerpt,expand.stack",
   })
   // PocketBase returns list-like structure; adapt to your existing PostRecord
   return {

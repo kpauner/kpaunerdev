@@ -9,6 +9,7 @@ export type PostTypes = {
   title: string
   subheading: string
   description: string
+  excerpt: string
   slug: string
   featuredImage: string
   content: string

@@ -65,6 +65,9 @@ export function PostsGrid({ posts }: { posts: PostTypes[] }) {
                         <h2 className="text-2xl font-bold uppercase tracking-wide">{post.title}</h2>
                         <Icons.arrowupright className="size-8 transition-transform duration-300 group-hover:rotate-45" />
                       </Link>
+                      {post.excerpt && (
+                        <p className="text-gray-600 dark:text-gray-300">{post.excerpt}</p>
+                      )}
                     </div>
                   </div>
                 </motion.div>
