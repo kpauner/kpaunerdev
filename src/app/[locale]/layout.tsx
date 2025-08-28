@@ -6,6 +6,8 @@ import { ThemeProvider } from "@/lib/providers/theme-provider"
 import { RootProvider } from "fumadocs-ui/provider"
 import OverlayProvider from "@/lib/providers/overlay-provider"
 import QueryProvider from "@/lib/providers/query-provider"
+import { NextIntlClientProvider } from "next-intl"
+import { getMessages } from "next-intl/server"
 
 export const metadata: Metadata = {
   title: "kpauner",
@@ -19,6 +21,7 @@ export default async function LocaleLayout({
   children: React.ReactNode
   params: { locale: string }
 }>) {
+  const messages = await getMessages()
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
@@ -30,12 +33,14 @@ export default async function LocaleLayout({
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
-          <QueryProvider>
-            <RootProvider theme={{ enabled: true }}>
-              <OverlayProvider>{children}</OverlayProvider>
-              <Loader />
-            </RootProvider>
-          </QueryProvider>
+          <NextIntlClientProvider messages={messages}>
+            <QueryProvider>
+              <RootProvider theme={{ enabled: true }}>
+                <OverlayProvider>{children}</OverlayProvider>
+                <Loader />
+              </RootProvider>
+            </QueryProvider>
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

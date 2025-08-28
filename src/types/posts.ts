@@ -14,6 +14,7 @@ export type PostTypes = {
   featuredImage: string
   content: string
   stack: string[]
+  categories: string[]
   expand: {
     stack: StackTypes[]
   }
