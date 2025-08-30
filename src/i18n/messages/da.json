@@ -7,7 +7,10 @@
     "subtitle": "In an ever-evolving digital landscape, my unique blend of talents positions me as someone capable of constructing immersive and impactful web experiences that resonate with audiences on multiple levels – aesthetic, functional, and emotional.",
     "stacks-title": "Technology stack",
     "stacks": "I design and develop web applications using various technologies.\nbelow is a selection of my favourite ones.",
-    "latest-articles": "Latest articles",
+    "latest-posts": {
+      "title": "Latest posts",
+      "description": "A collection of articles that delve into the world of frontend development and design, exploring topics ranging from design principles to advanced techniques and best practices."
+    },
     "selected-works": {
       "title": "Selected works",
       "description": "A curated collection of projects that showcase my expertise in frontend development and design. Each piece represents a unique challenge solved through creative problem-solving and technical innovation."

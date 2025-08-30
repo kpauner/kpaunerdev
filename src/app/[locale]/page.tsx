@@ -9,6 +9,8 @@ import Divider from "@/components/divider"
 import HeroLowImpact from "@/components/app/hero-low-impact"
 import Footer from "@/components/layout/footer"
 import Header from "@/components/layout/header"
+import { PostsGrid } from "@/features/posts/components/posts-grid"
+import { ChartLineDots } from "@/components/chart-line-dots"
 
 type HomeProps = {
   params: { locale: string }
@@ -46,6 +48,18 @@ export default async function Home({ params }: HomeProps) {
         <ScrollList stack={categories} className="pb-32" />
 
         <PageLayout as="section" className="space-y-8 py-32">
+          <Divider
+            title={t("latest-posts.title")}
+            description={t("latest-posts.description")}
+            descriptionClassName="max-w-3xl"
+            className="pb-16"
+          />
+          <div className="min-w-0 flex-1">
+            <PostsGrid posts={posts.items} className="w-full" />
+          </div>
+        </PageLayout>
+
+        <PageLayout as="section" className="space-y-8 py-32">
           {/* {posts.items.length > 1 && (
         <Bounded className="bg-secondary">
           <Heading size="lg" as="h3" className="pb-16 uppercase">
@@ -54,6 +68,7 @@ export default async function Home({ params }: HomeProps) {
           <ContentList data={posts.items} type="posts" />
         </Bounded>
       )} */}
+
           <Divider
             title={t("selected-works.title")}
             description={t("selected-works.description")}

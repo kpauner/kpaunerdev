@@ -41,7 +41,7 @@ export function PostsFilterSidebar() {
   }
 
   return (
-    <aside className="w-64 space-y-3">
+    <aside className="w-full space-y-3 md:w-64">
       {/* <h3 className="text-sm font-semibold uppercase tracking-wide">Filter</h3> */}
       <div className="space-y-2">
         {activeCategories.map((c) => (

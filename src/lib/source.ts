@@ -1,10 +1,9 @@
-import { docs, meta } from "../../.source"
-import { createMDXSource } from "fumadocs-mdx"
+import { docs } from "../../.source"
 import { loader } from "fumadocs-core/source"
-import { i18n } from "@/i18n.config"
+import { routing } from "@/i18n/routing"
 
 export const source = loader({
-  languages: i18n.languages,
+  languages: routing.locales,
   baseUrl: "/docs",
-  source: createMDXSource(docs, meta),
+  source: docs.toFumadocsSource(),
 })

@@ -6,6 +6,7 @@ import { getCategories } from "@/data-access/get-categories"
 import { PageLayout } from "@/components/layout/page-layout"
 import Image from "next/image"
 import { env } from "@/lib/env"
+import Header from "@/components/layout/header"
 
 type PostPageProps = {
   params: {
@@ -32,8 +33,13 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <>
-      header here
-      <PageLayout variant="post">
+      <Header />
+
+      <PageLayout
+        variant="post"
+        title="Post"
+        description="Examples of indie games that might fit this category include simple puzzles, creative tools, or immersive sensory experiences with minimal input, such as the The Forest Project by Aalto University"
+      >
         <Image
           unoptimized
           src={imageUrl}

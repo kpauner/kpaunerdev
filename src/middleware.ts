@@ -1,13 +1,17 @@
 import createMiddleware from "next-intl/middleware"
-import { i18n } from "./i18n.config"
+import { routing } from "./i18n/routing"
 
-export default createMiddleware({
-  locales: i18n.locales,
-
-  // Used when no locale matches
-  defaultLocale: "en",
-})
+export default createMiddleware(routing)
 
 export const config = {
-  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)", "/docs/:path*"],
+  matcher: [
+    // Enable internationalization for all locales
+    "/(en|da|ja)/:path*",
+
+    // Enable internationalization for the root path
+    "/",
+
+    // Exclude Next.js internal files and API routes
+    "/((?!api|_next|_vercel|.*\\..*).*)",
+  ],
 }
