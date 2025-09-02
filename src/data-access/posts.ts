@@ -12,8 +12,8 @@ export const getPostBySlug = cache(async (slug: string): Promise<PostTypes> => {
 })
 
 export const getPosts = cache(async (): Promise<PostRecord> => {
-  const posts = await fetch(`${env.NEXT_PUBLIC_API_URL}/api/collections/posts/records`).then(
-    (res) => res.json(),
-  )
+  const posts = await fetch(
+    `${env.NEXT_PUBLIC_API_URL}/api/collections/posts/records?filter=(isPublished=true)`,
+  ).then((res) => res.json())
   return posts
 })
