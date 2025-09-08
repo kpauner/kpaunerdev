@@ -49,17 +49,27 @@ export function PostsGrid({ posts, className }: PostsGridProps) {
                   <div className="space-y-4">
                     {/* Featured Image */}
                     <div className="aspect-video overflow-hidden rounded-lg">
-                      {isImage ? (
-                        <img
-                          src={fileUrl}
-                          alt={`${post.slug} image`}
-                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
+                      {post.featuredImage ? (
+                        isImage ? (
+                          <img
+                            src={fileUrl}
+                            alt={`${post.slug} image`}
+                            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            onError={(e) => {
+                              console.error("Image failed to load:", fileUrl)
+                              e.currentTarget.src = "/images/fallback-image.png"
+                            }}
+                          />
+                        ) : (
+                          <video className="h-full w-full object-cover" controls muted loop>
+                            <source src={fileUrl} />
+                            Your browser does not support the video tag.
+                          </video>
+                        )
                       ) : (
-                        <video className="h-full w-full object-cover" controls muted loop>
-                          <source src={fileUrl} />
-                          Your browser does not support the video tag.
-                        </video>
+                        <div className="flex h-full w-full items-center justify-center bg-gray-200 dark:bg-gray-700">
+                          <span className="text-gray-500 dark:text-gray-400">No image</span>
+                        </div>
                       )}
                     </div>
 

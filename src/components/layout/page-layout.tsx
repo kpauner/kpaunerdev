@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils"
 import { cva } from "class-variance-authority"
 import { forwardRef } from "react"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 type PageLayoutProps = {
   as?: React.ElementType
@@ -10,6 +12,7 @@ type PageLayoutProps = {
   variant?: "default" | "page" | "post"
   className?: string
   children?: React.ReactNode
+  docsUrl?: string
 } & React.HTMLAttributes<HTMLDivElement>
 
 const pageLayoutVariants = cva("flex grow flex-col mx-auto px-4 md:px-12 py-12", {
@@ -35,6 +38,7 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
       variant = "default",
       className,
       children,
+      docsUrl,
       ...restProps
     },
     ref,
@@ -53,6 +57,16 @@ const PageLayout = forwardRef<HTMLDivElement, PageLayoutProps>(
               {description && (
                 <div className="pt-12">
                   <p className="text-2xl tracking-wide text-foreground">{description}</p>
+                </div>
+              )}
+
+              {docsUrl && (
+                <div className="pt-6">
+                  <Button asChild variant="outline" size="sm">
+                    <Link href={docsUrl} target="_blank" rel="noopener noreferrer">
+                      View Docs
+                    </Link>
+                  </Button>
                 </div>
               )}
             </div>

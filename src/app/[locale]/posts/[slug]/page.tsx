@@ -7,6 +7,7 @@ import { PageLayout } from "@/components/layout/page-layout"
 import Image from "next/image"
 import { env } from "@/lib/env"
 import Header from "@/components/layout/header"
+import { source } from "@/lib/source"
 
 type PostPageProps = {
   params: {
@@ -28,6 +29,10 @@ export default async function PostPage({ params }: PostPageProps) {
     return notFound()
   }
 
+  // Check if a docs page exists for this slug
+  const docsPage = source.getPage([slug])
+  const docsUrl = docsPage ? `/docs/${slug}` : undefined
+
   // Construct the full image URL
   const imageUrl = `${env.NEXT_PUBLIC_API_URL}/api/files/posts/${post.id}/${post.featuredImage}`
 
@@ -37,8 +42,9 @@ export default async function PostPage({ params }: PostPageProps) {
 
       <PageLayout
         variant="post"
-        title="Post"
+        title={post.title}
         description="Examples of indie games that might fit this category include simple puzzles, creative tools, or immersive sensory experiences with minimal input, such as the The Forest Project by Aalto University"
+        docsUrl={docsUrl}
       >
         <Image
           unoptimized

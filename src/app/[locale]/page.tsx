@@ -47,7 +47,7 @@ export default async function Home({ params }: HomeProps) {
 
         <ScrollList stack={categories} className="pb-32" />
 
-        <PageLayout as="section" className="space-y-8 py-32">
+        {/* <PageLayout as="section" className="space-y-8 py-32">
           <Divider
             title={t("latest-posts.title")}
             description={t("latest-posts.description")}
@@ -57,7 +57,7 @@ export default async function Home({ params }: HomeProps) {
           <div className="min-w-0 flex-1">
             <PostsGrid posts={posts.items} className="w-full" />
           </div>
-        </PageLayout>
+        </PageLayout> */}
 
         <PageLayout as="section" className="space-y-8 py-32">
           {/* {posts.items.length > 1 && (
