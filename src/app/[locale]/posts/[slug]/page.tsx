@@ -9,6 +9,9 @@ import { env } from "@/lib/env"
 import Header from "@/components/layout/header"
 import { source } from "@/lib/source"
 
+// Force dynamic rendering since we're checking for docs pages
+export const dynamic = "force-dynamic"
+
 type PostPageProps = {
   params: {
     slug: string
