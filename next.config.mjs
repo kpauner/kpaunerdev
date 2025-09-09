@@ -21,4 +21,4 @@ const nextConfig = {
   },
 }
 
-export default withMDX(withNextIntl(nextConfig))
+export default withNextIntl(withMDX(nextConfig))
