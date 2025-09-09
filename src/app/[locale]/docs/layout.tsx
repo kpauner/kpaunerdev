@@ -8,17 +8,19 @@ export const metadata = {
   title: "Documentation",
 }
 
-export default async function Layout({
+// Force dynamic rendering for the layout too
+export const dynamic = "force-dynamic"
+
+export default function Layout({
   params,
   children,
 }: {
   params: { locale: string }
   children: ReactNode
 }) {
-  const pageTree = source.pageTree
   return (
     <>
-      <DocsLayout tree={pageTree} {...baseOptions} sidebar={{ prefetch: false }}>
+      <DocsLayout tree={source.pageTree} {...baseOptions} sidebar={{ prefetch: false }}>
         {children}
       </DocsLayout>
     </>
