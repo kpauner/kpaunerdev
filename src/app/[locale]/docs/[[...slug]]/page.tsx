@@ -4,6 +4,9 @@ import { notFound } from "next/navigation"
 import defaultMdxComponents from "fumadocs-ui/mdx"
 import { metadataImage } from "@/lib/metadata"
 
+// Force dynamic rendering to avoid DYNAMIC_SERVER_USAGE error
+export const dynamic = "force-dynamic"
+
 export default async function Page(props: { params: Promise<{ slug?: string[] }> }) {
   try {
     const params = await props.params
@@ -32,17 +35,7 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
   }
 }
 
-export async function generateStaticParams() {
-  try {
-    const params = source.generateParams()
-    console.log("Generated static params for docs:", params)
-    return params
-  } catch (error) {
-    console.error("Error generating static params:", error)
-    // If generation fails, return empty array to avoid build errors
-    return []
-  }
-}
+// Removed generateStaticParams since we're using dynamic rendering
 
 export async function generateMetadata(props: { params: Promise<{ slug?: string[] }> }) {
   const params = await props.params
