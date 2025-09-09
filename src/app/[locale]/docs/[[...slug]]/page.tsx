@@ -33,16 +33,15 @@ export default async function Page(props: { params: Promise<{ slug?: string[] }>
 }
 
 export async function generateStaticParams() {
-  // Manually define the static params for docs pages
-  const staticParams = [
-    { slug: ["leif"] },
-    { slug: ["accordion"] },
-    { slug: ["stack"] },
-    { slug: ["index"] },
-  ]
-
-  console.log("Using manual static params for docs:", staticParams)
-  return staticParams
+  try {
+    const params = source.generateParams()
+    console.log("Generated static params for docs:", params)
+    return params
+  } catch (error) {
+    console.error("Error generating static params:", error)
+    // If generation fails, return empty array to avoid build errors
+    return []
+  }
 }
 
 export async function generateMetadata(props: { params: Promise<{ slug?: string[] }> }) {
