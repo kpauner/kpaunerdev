@@ -1,7 +1,6 @@
 import React from "react"
 import { notFound } from "next/navigation"
 import ImageGallery from "@/components/projects/image-gallery"
-import { useLocale } from "next-intl"
 import { StackRecord } from "@/types/stacks"
 import { getCategories } from "@/data-access/get-categories"
 import { getProjects } from "@/data-access/get-projects"
@@ -17,15 +16,14 @@ import Footer from "@/components/layout/footer"
 import { getTranslations } from "next-intl/server"
 
 type ProjectPageProps = {
-  params: {
+  params: Promise<{
     slug: string
     locale: string
-  }
+  }>
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const { slug } = params
-  const locale = useLocale()
+  const { slug, locale } = await params
   const t = await getTranslations("footer")
   const projects = await getProjects()
   const project = projects?.items.find((project: ProjectTypes) => project.slug === slug)
