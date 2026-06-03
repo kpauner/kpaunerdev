@@ -1,5 +1,6 @@
 "use server"
 
+import { createElement } from "react"
 import { ContactFormSchema } from "@/types/contact-form"
 import { resend } from "../email"
 import { EmailTemplate } from "@/components/emails/email-template"
@@ -17,7 +18,7 @@ export async function sendEmailAction(data: EmailActionProps) {
       from: "kp@kpauner.com",
       to: "kp@kpauner.com",
       subject: "From Email Form",
-      react: EmailTemplate({ name: name, message, email }),
+      react: createElement(EmailTemplate, { name, message, email }),
       text: "Email powered by Resend.",
     })
 

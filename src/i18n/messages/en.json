@@ -21,5 +21,41 @@
     "about": "About",
     "available": "Available for full-time work",
     "copyright": "Copyright © 2024. All rights reserved."
+  },
+  "dashboard": {
+    "brand": "Acme Inc.",
+    "header": "Documents",
+    "nav": {
+      "quickCreate": "Quick Create",
+      "inbox": "Inbox",
+      "timeline": "Timeline",
+      "tasks": "Tasks",
+      "dashboard": "Dashboard",
+      "lifecycle": "Lifecycle",
+      "analytics": "Analytics",
+      "projects": "Projects",
+      "team": "Team"
+    },
+    "navClouds": {
+      "capture": "Capture",
+      "proposal": "Proposal",
+      "prompts": "Prompts",
+      "activeProposals": "Active Proposals",
+      "archived": "Archived"
+    },
+    "documents": {
+      "label": "Documents",
+      "dataLibrary": "Data Library",
+      "reports": "Reports",
+      "wordAssistant": "Word Assistant",
+      "more": "More",
+      "open": "Open",
+      "share": "Share"
+    },
+    "secondary": {
+      "settings": "Settings",
+      "getHelp": "Get Help",
+      "search": "Search"
+    }
   }
 }

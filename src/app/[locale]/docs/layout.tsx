@@ -11,11 +11,10 @@ export const metadata = {
 // Force dynamic rendering for the layout too
 export const dynamic = "force-dynamic"
 
-export default function Layout({
-  params,
+export default async function Layout({
   children,
 }: {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
   children: ReactNode
 }) {
   return (

@@ -13,14 +13,14 @@ import { source } from "@/lib/source"
 export const dynamic = "force-dynamic"
 
 type PostPageProps = {
-  params: {
+  params: Promise<{
     slug: string
     locale: string
-  }
+  }>
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const { slug } = params
+  const { slug } = await params
   const postPromise = getPostBySlug(slug)
   const categoriesPromise = getCategories()
   const [post, categories] = await Promise.all([postPromise, categoriesPromise])

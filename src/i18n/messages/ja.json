@@ -10,5 +10,41 @@
   "footer": {
     "title": "Soon available for new projects!",
     "about": "About"
+  },
+  "dashboard": {
+    "brand": "Acme Inc.",
+    "header": "ドキュメント",
+    "nav": {
+      "quickCreate": "クイック作成",
+      "inbox": "受信トレイ",
+      "timeline": "タイムライン",
+      "tasks": "タスク",
+      "dashboard": "ダッシュボード",
+      "lifecycle": "ライフサイクル",
+      "analytics": "分析",
+      "projects": "プロジェクト",
+      "team": "チーム"
+    },
+    "navClouds": {
+      "capture": "キャプチャ",
+      "proposal": "提案",
+      "prompts": "プロンプト",
+      "activeProposals": "アクティブな提案",
+      "archived": "アーカイブ"
+    },
+    "documents": {
+      "label": "ドキュメント",
+      "dataLibrary": "データライブラリ",
+      "reports": "レポート",
+      "wordAssistant": "Wordアシスタント",
+      "more": "その他",
+      "open": "開く",
+      "share": "共有"
+    },
+    "secondary": {
+      "settings": "設定",
+      "getHelp": "ヘルプ",
+      "search": "検索"
+    }
   }
 }

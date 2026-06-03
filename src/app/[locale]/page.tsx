@@ -13,10 +13,10 @@ import { PostsGrid } from "@/features/posts/components/posts-grid"
 import { ChartLineDots } from "@/components/chart-line-dots"
 
 type HomeProps = {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
-export default async function Home({ params }: HomeProps) {
+export default async function Home(_props: HomeProps) {
   const t = await getTranslations("landing")
   const tFooter = await getTranslations("footer")
   const categoriesPromise = getCategories()

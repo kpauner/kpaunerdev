@@ -21,5 +21,41 @@
     "about": "About",
     "available": "Available for full-time work",
     "copyright": "Copyright © 2024. All rights reserved."
+  },
+  "dashboard": {
+    "brand": "Acme Inc.",
+    "header": "Dokumenter",
+    "nav": {
+      "quickCreate": "Hurtig oprettelse",
+      "inbox": "Indbakke",
+      "timeline": "Tidslinje",
+      "tasks": "Opgaver",
+      "dashboard": "Dashboard",
+      "lifecycle": "Livscyklus",
+      "analytics": "Analyse",
+      "projects": "Projekter",
+      "team": "Team"
+    },
+    "navClouds": {
+      "capture": "Capture",
+      "proposal": "Forslag",
+      "prompts": "Prompts",
+      "activeProposals": "Aktive forslag",
+      "archived": "Arkiveret"
+    },
+    "documents": {
+      "label": "Dokumenter",
+      "dataLibrary": "Databibliotek",
+      "reports": "Rapporter",
+      "wordAssistant": "Word-assistent",
+      "more": "Mere",
+      "open": "Åbn",
+      "share": "Del"
+    },
+    "secondary": {
+      "settings": "Indstillinger",
+      "getHelp": "Få hjælp",
+      "search": "Søg"
+    }
   }
 }
