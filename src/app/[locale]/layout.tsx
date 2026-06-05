@@ -5,6 +5,7 @@ import Loader from "@/components/app/loader"
 import { ThemeProvider } from "@/lib/providers/theme-provider"
 import { RootProvider } from "fumadocs-ui/provider"
 import OverlayProvider from "@/lib/providers/overlay-provider"
+import AuthProvider from "@/lib/providers/auth-provider"
 import QueryProvider from "@/lib/providers/query-provider"
 import { NextIntlClientProvider } from "next-intl"
 import { getMessages } from "next-intl/server"
@@ -36,10 +37,12 @@ export default async function LocaleLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
           <NextIntlClientProvider messages={messages}>
             <QueryProvider>
-              <RootProvider theme={{ enabled: true }}>
-                <OverlayProvider>{children}</OverlayProvider>
-                <Loader />
-              </RootProvider>
+              <AuthProvider>
+                <RootProvider theme={{ enabled: true }}>
+                  <OverlayProvider>{children}</OverlayProvider>
+                  <Loader />
+                </RootProvider>
+              </AuthProvider>
             </QueryProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
