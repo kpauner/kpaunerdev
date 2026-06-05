@@ -1,7 +1,6 @@
 "use client"
 
 import {
-  BarChartIcon,
   CameraIcon,
   ClipboardListIcon,
   DatabaseIcon,
@@ -10,8 +9,6 @@ import {
   FileIcon,
   FolderIcon,
   HelpCircleIcon,
-  LayoutDashboardIcon,
-  ListIcon,
   ListTodoIcon,
   CalendarRangeIcon,
   SearchIcon,
@@ -49,10 +46,7 @@ export function useDashboardNav() {
 
   const navMain: DashboardNavItem[] = [
     { title: t("nav.timeline"), url: "#", icon: CalendarRangeIcon },
-    { title: t("nav.tasks"), url: "#", icon: ListTodoIcon },
-    { title: t("nav.dashboard"), url: "#", icon: LayoutDashboardIcon },
-    { title: t("nav.lifecycle"), url: "#", icon: ListIcon },
-    { title: t("nav.analytics"), url: "#", icon: BarChartIcon },
+    { title: t("nav.tasks"), url: "/dashboard/tasks", icon: ListTodoIcon },
     { title: t("nav.projects"), url: "#", icon: FolderIcon },
     { title: t("nav.team"), url: "#", icon: UsersIcon },
   ]

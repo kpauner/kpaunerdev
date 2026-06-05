@@ -496,7 +496,7 @@ export function TasksTable({
             </Table>
           </DndContext>
         </div>
-        <div className="flex items-center justify-between px-4">
+        <div className="flex items-center justify-between">
           <div className="text-muted-foreground hidden flex-1 text-sm lg:flex">
             {table.getFilteredSelectedRowModel().rows.length} of{" "}
             {table.getFilteredRowModel().rows.length} row(s) selected.
@@ -593,7 +593,7 @@ function TableCellViewer({ item }: { item: z.infer<typeof schema> }) {
           <DrawerTitle>{item.title}</DrawerTitle>
           <DrawerDescription>Task details and information</DrawerDescription>
         </DrawerHeader>
-        <div className="flex flex-col gap-4 overflow-y-auto px-4 text-sm">
+        <div className="flex flex-col gap-4 overflow-y-auto text-sm">
           <form className="flex flex-col gap-4">
             <div className="flex flex-col gap-3">
               <Label htmlFor="title">Title</Label>
